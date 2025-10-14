@@ -25,7 +25,7 @@ class CustomDialog {
             children: [
               const CircularProgressIndicator(),
               Text(
-                message ?? AppLocalizations.of(ctx).loading,
+                message ?? CoreLocalizations.of(ctx).loading,
                 style: Theme.of(ctx).textTheme.bodyLarge,
               ),
             ],
@@ -64,7 +64,7 @@ class CustomDialog {
                   }
                 },
                 child: Text(
-                  positiveText ?? AppLocalizations.of(ctx).ok,
+                  positiveText ?? CoreLocalizations.of(ctx).ok,
                   style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
                     color: AppColors.white,
                     fontWeight: FontWeight.bold,
@@ -120,7 +120,7 @@ class CustomDialog {
                         }
                       },
                       child: Text(
-                        negativeText ?? AppLocalizations.of(ctx).no,
+                        negativeText ?? CoreLocalizations.of(ctx).no,
                         style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,
@@ -138,7 +138,7 @@ class CustomDialog {
                         }
                       },
                       child: Text(
-                        positiveText ?? AppLocalizations.of(ctx).yes,
+                        positiveText ?? CoreLocalizations.of(ctx).yes,
                         style: Theme.of(ctx).textTheme.bodyMedium?.copyWith(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,

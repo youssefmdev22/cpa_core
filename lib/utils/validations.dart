@@ -8,11 +8,11 @@ class Validations {
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
     );
     if (val == null) {
-      return AppLocalizations().emailIsRequired;
+      return CoreLocalizations().emailIsRequired;
     } else if (val.trim().isEmpty) {
-      return AppLocalizations().emailIsRequired;
+      return CoreLocalizations().emailIsRequired;
     } else if (emailRegex.hasMatch(val) == false) {
-      return AppLocalizations().enterValidEmail;
+      return CoreLocalizations().enterValidEmail;
     } else {
       return null;
     }
@@ -23,11 +23,11 @@ class Validations {
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
     );
     if (val == null) {
-      return AppLocalizations().passwordIsRequired;
+      return CoreLocalizations().passwordIsRequired;
     } else if (val.isEmpty) {
-      return AppLocalizations().passwordIsRequired;
+      return CoreLocalizations().passwordIsRequired;
     } else if (val.length < 8 || !passwordRegex.hasMatch(val)) {
-      return AppLocalizations().passwordNotMatched;
+      return CoreLocalizations().passwordNotMatched;
     } else {
       return null;
     }
@@ -35,9 +35,9 @@ class Validations {
 
   static String? validateConfirmPassword(String? val, String? password) {
     if (val == null || val.isEmpty) {
-      return AppLocalizations().passwordIsRequired;
+      return CoreLocalizations().passwordIsRequired;
     } else if (val != password) {
-      return AppLocalizations().passwordNotMatched;
+      return CoreLocalizations().passwordNotMatched;
     } else {
       return null;
     }
@@ -46,11 +46,11 @@ class Validations {
   static String? validateUsername(String? val) {
     final RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9,.-]+$');
     if (val == null) {
-      return AppLocalizations().thisFieldIsRequired;
+      return CoreLocalizations().thisFieldIsRequired;
     } else if (val.isEmpty) {
-      return AppLocalizations().thisFieldIsRequired;
+      return CoreLocalizations().thisFieldIsRequired;
     } else if (!usernameRegex.hasMatch(val)) {
-      return AppLocalizations().enterValidUsername;
+      return CoreLocalizations().enterValidUsername;
     } else {
       return null;
     }
@@ -58,7 +58,7 @@ class Validations {
 
   static String? validateFullName(String? val) {
     if (val == null || val.isEmpty) {
-      return AppLocalizations().thisFieldIsRequired;
+      return CoreLocalizations().thisFieldIsRequired;
     } else {
       return null;
     }
@@ -68,11 +68,11 @@ class Validations {
     final regex = RegExp(r'^(?:\+2)?01[0125][0-9]{8}$');
 
     if (val == null || val.trim().isEmpty) {
-      return AppLocalizations().thisFieldIsRequired;
+      return CoreLocalizations().thisFieldIsRequired;
     } else if (int.tryParse(val.trim()) == null) {
-      return AppLocalizations().enterNumbersOnly;
+      return CoreLocalizations().enterNumbersOnly;
     } else if (!regex.hasMatch(val.trim())) {
-      return AppLocalizations().enterValidEgyptianPhoneNumber;
+      return CoreLocalizations().enterValidEgyptianPhoneNumber;
     } else {
       return null;
     }
@@ -82,11 +82,11 @@ class Validations {
     final RegExp addressRegex = RegExp(r"^[\p{L}\d\s,.\-\/#]+$", unicode: true);
 
     if (val == null || val.trim().isEmpty) {
-      return AppLocalizations().pleaseEnterAddress;
+      return CoreLocalizations().pleaseEnterAddress;
     }
 
     if (!addressRegex.hasMatch(val.trim())) {
-      return AppLocalizations().pleaseEnterValidAddress;
+      return CoreLocalizations().pleaseEnterValidAddress;
     }
 
     return null;

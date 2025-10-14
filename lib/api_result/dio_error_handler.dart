@@ -5,33 +5,33 @@ import '../generated/l10n.dart';
 String handleDioError(DioException error) {
   switch (error.type) {
     case DioExceptionType.connectionTimeout:
-      return AppLocalizations().connectionTimeout;
+      return CoreLocalizations().connectionTimeout;
 
     case DioExceptionType.sendTimeout:
-      return AppLocalizations().sendTimeout;
+      return CoreLocalizations().sendTimeout;
 
     case DioExceptionType.receiveTimeout:
-      return AppLocalizations().receiveTimeout;
+      return CoreLocalizations().receiveTimeout;
 
     case DioExceptionType.badCertificate:
-      return AppLocalizations().badCertificate;
+      return CoreLocalizations().badCertificate;
 
     case DioExceptionType.badResponse:
       return _extractErrorMessageFromResponse(error.response);
 
     case DioExceptionType.cancel:
-      return AppLocalizations().dioErrorCancel;
+      return CoreLocalizations().dioErrorCancel;
 
     case DioExceptionType.connectionError:
-      return AppLocalizations().connectionError;
+      return CoreLocalizations().connectionError;
 
     case DioExceptionType.unknown:
-      return "${AppLocalizations().unknownError} ${error.message ?? AppLocalizations().unknown}";
+      return "${CoreLocalizations().unknownError} ${error.message ?? CoreLocalizations().unknown}";
   }
 }
 
 String _extractErrorMessageFromResponse(Response? response) {
-  if (response == null) return AppLocalizations().noResponse;
+  if (response == null) return CoreLocalizations().noResponse;
 
   try {
     final data = response.data;
@@ -55,8 +55,8 @@ String _extractErrorMessageFromResponse(Response? response) {
       return data; // Plain text error response
     }
 
-    return "${AppLocalizations().badResponse} [${response.statusCode}].";
+    return "${CoreLocalizations().badResponse} [${response.statusCode}].";
   } catch (e) {
-    return AppLocalizations().failedToParseResponse;
+    return CoreLocalizations().failedToParseResponse;
   }
 }

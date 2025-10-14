@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
-import '../constants/fonts_name.dart';
+import '../constants/app_fonts.dart';
 import '../generated/l10n.dart';
 
 class CustomOrDividerWidget extends StatelessWidget {
@@ -10,7 +10,7 @@ class CustomOrDividerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final local = AppLocalizations.of(context);
+    final local = CoreLocalizations.of(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +36,7 @@ class CustomOrDividerWidget extends StatelessWidget {
           style: theme.textTheme.bodyMedium?.copyWith(
             color: AppColors.blue[0],
             fontWeight: FontWeight.w700,
-            fontFamily: FontsName.poppinsFont,
+            fontFamily: AppFonts.poppinsFont,
           ),
         ),
         Expanded(

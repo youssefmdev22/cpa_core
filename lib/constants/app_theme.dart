@@ -2,14 +2,14 @@ import 'package:cpa_core/responsive/responsive_text.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
-import 'fonts_name.dart';
+import 'app_fonts.dart';
 
 abstract class AppTheme {
   static ThemeData darkTheme(BuildContext context) {
     return ThemeData(
       useMaterial3: true,
       scaffoldBackgroundColor: AppColors.bgColorColor,
-      fontFamily: FontsName.poppinsFont,
+      fontFamily: AppFonts.poppinsFont,
       colorScheme: ColorScheme(
         brightness: Brightness.light,
         primary: AppColors.mainColor,
@@ -43,7 +43,7 @@ abstract class AppTheme {
         ).responsiveFont(context, fontSize: 14),
         labelSmall: getTextStyle(
           fontWeight: FontWeight.w400,
-          fontFamily: FontsName.poppinsFont,
+          fontFamily: AppFonts.poppinsFont,
         ).responsiveFont(context, fontSize: 12),
       ),
       appBarTheme: AppBarTheme(
@@ -58,7 +58,7 @@ abstract class AppTheme {
         contentPadding: EdgeInsets.only(left: 16, top: 4, bottom: 4, right: 16),
         hintStyle: getTextStyle(
           color: const Color(0xff808390),
-          fontFamily: FontsName.poppinsFont,
+          fontFamily: AppFonts.poppinsFont,
           fontWeight: FontWeight.w600,
           fontSize: 13,
         ).responsiveFont(context, fontSize: 13),
@@ -130,7 +130,7 @@ abstract class AppTheme {
     return TextStyle(
       color: color ?? AppColors.white,
       fontSize: fontSize ?? 14,
-      fontFamily: fontFamily ?? FontsName.poppinsFont,
+      fontFamily: fontFamily ?? AppFonts.poppinsFont,
       fontWeight: fontWeight ?? FontWeight.w400,
     );
   }

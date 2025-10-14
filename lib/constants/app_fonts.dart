@@ -1,3 +1,3 @@
-abstract final class FontsName {
+abstract final class AppFonts {
   static const String poppinsFont = "poppins";
 }
