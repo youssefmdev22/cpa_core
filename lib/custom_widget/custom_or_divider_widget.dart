@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
-import '../constants/const_keys.dart';
+import '../constants/fonts_name.dart';
 import '../generated/l10n.dart';
 
 class CustomOrDividerWidget extends StatelessWidget {
@@ -36,7 +36,7 @@ class CustomOrDividerWidget extends StatelessWidget {
           style: theme.textTheme.bodyMedium?.copyWith(
             color: AppColors.blue[0],
             fontWeight: FontWeight.w700,
-            fontFamily: ConstKeys.poppinsFont,
+            fontFamily: FontsName.poppinsFont,
           ),
         ),
         Expanded(

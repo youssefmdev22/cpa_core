@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
 
-import '../constants/const_keys.dart';
+import '../constants/fonts_name.dart';
 import 'custom_drop_pick_image_controller.dart';
 
 class CustomDropPickImage extends FormField<Uint8List?> {
@@ -53,7 +53,7 @@ class CustomDropPickImage extends FormField<Uint8List?> {
                            style: TextStyle(
                              color: Colors.red,
                              fontSize: 14,
-                             fontFamily: ConstKeys.poppinsFont,
+                             fontFamily: FontsName.poppinsFont,
                            ),
                          ),
                        ),

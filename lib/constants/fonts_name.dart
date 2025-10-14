@@ -1,3 +1,3 @@
-abstract final class ConstKeys {
+abstract final class FontsName {
   static const String poppinsFont = "poppins";
 }
