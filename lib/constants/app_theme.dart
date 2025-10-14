@@ -8,7 +8,7 @@ abstract class AppTheme {
   static ThemeData darkTheme(BuildContext context) {
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: AppColors.bgColorColor,
+      scaffoldBackgroundColor: AppColors.bgColor,
       fontFamily: AppFonts.poppinsFont,
       colorScheme: ColorScheme(
         brightness: Brightness.light,

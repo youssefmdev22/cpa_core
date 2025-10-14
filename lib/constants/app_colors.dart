@@ -58,7 +58,7 @@ abstract class AppColors {
     40: Color(0xFFF59E0B),
   });
 
-  static MaterialColor white = const MaterialColor(0xFFF9F9F9, <int, Color>{
+  static const MaterialColor white = MaterialColor(0xFFF9F9F9, <int, Color>{
     10: Color(0xFFfefefe),
     20: Color(0xFFfdfdfd),
     30: Color(0xFFfcfcfc),
@@ -71,7 +71,7 @@ abstract class AppColors {
     100: Color(0xFF323232),
   });
 
-  static MaterialColor black = const MaterialColor(0xFF0C1015, <int, Color>{
+  static const MaterialColor black = MaterialColor(0xFF0C1015, <int, Color>{
     10: Color(0xFFcecfd0),
     20: Color(0xFFAEAFB1),
     30: Color(0xFF86888a),
@@ -87,7 +87,9 @@ abstract class AppColors {
   static const Color red = Color(0xffCC1010);
 
   static const Color borderFieldColor = Color(0xff3f424d);
-  static const Color bgColorColor = MaterialColor(0xff0b0f14, <int, Color>{
-    10: Color(0xFF11161D),
-  });
+
+  static const MaterialColor bgColor = MaterialColor(
+    0xff0b0f14,
+    <int, Color>{10: Color(0xFF11161D)},
+  );
 }

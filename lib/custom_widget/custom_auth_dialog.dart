@@ -11,7 +11,7 @@ Future customAuthDialog(
   return showDialog(
     context: context,
     builder: (context) => Dialog(
-      backgroundColor: AppColors.bgColorColor,
+      backgroundColor: AppColors.bgColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Container(
         width: width,
