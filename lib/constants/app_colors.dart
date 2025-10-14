@@ -82,6 +82,7 @@ abstract class AppColors {
     80: Color(0xFF06080b),
     90: Color(0xFF040507),
     100: Color(0xFF020304),
+    110: Color(0xFF11161D),
   });
 
   static const Color red = Color(0xffCC1010);
