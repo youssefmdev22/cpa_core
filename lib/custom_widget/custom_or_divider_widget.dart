@@ -10,7 +10,7 @@ class CustomOrDividerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final local = CoreLocalizations.of(context);
+    final local = CoreLocalizations();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
