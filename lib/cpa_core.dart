@@ -11,3 +11,13 @@ export 'custom_widget/custom_drop_pick_image.dart';
 export 'custom_widget/custom_drop_pick_image_controller.dart';
 export 'custom_widget/custom_or_divider_widget.dart';
 export 'utils/validations.dart';
+
+//packages
+export 'package:dio/dio.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:image_picker/image_picker.dart';
+export 'package:flutter_dropzone/flutter_dropzone.dart';
+export 'package:equatable/equatable.dart';
+export 'package:awesome_extensions/awesome_extensions.dart';
+export 'package:flutter_rating_bar/flutter_rating_bar.dart';
+export 'package:font_awesome_flutter/font_awesome_flutter.dart';

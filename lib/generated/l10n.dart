@@ -50,6 +50,16 @@ class CoreLocalizations {
     return Localizations.of<CoreLocalizations>(context, CoreLocalizations);
   }
 
+  /// `Cpa`
+  String get appName {
+    return Intl.message(
+      'Cpa',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Connection timeout. Please try again later.`
   String get connectionTimeout {
     return Intl.message(
