@@ -1,5 +1,6 @@
 export 'api_result/api_result.dart';
 export 'api_result/safe_api_call.dart';
+export 'api_result/base_state.dart';
 export 'constants/app_colors.dart';
 export 'constants/app_fonts.dart';
 export 'constants/app_theme.dart';
