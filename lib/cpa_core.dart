@@ -11,6 +11,9 @@ export 'custom_widget/custom_drop_pick_image.dart';
 export 'custom_widget/custom_drop_pick_image_controller.dart';
 export 'custom_widget/custom_or_divider_widget.dart';
 export 'utils/validations.dart';
+export 'custom_widget/custom_category_text_item.dart';
+export 'custom_widget/custom_static_item_icon.dart';
+export 'custom_widget/custom_widget_wrapper_items.dart';
 
 //packages
 export 'package:dio/dio.dart';

@@ -88,8 +88,8 @@ abstract class AppColors {
 
   static const Color borderFieldColor = Color(0xff3f424d);
 
-  static const MaterialColor bgColor = MaterialColor(
-    0xff0b0f14,
-    <int, Color>{10: Color(0xFF11161D)},
-  );
+  static const MaterialColor bgColor = MaterialColor(0xff0b0f14, <int, Color>{
+    10: Color(0xFF11161D),
+    20: Color(0xFF11161d),
+  });
 }
