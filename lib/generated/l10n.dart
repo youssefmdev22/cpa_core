@@ -18,10 +18,8 @@ class CoreLocalizations {
   static CoreLocalizations? _current;
 
   static CoreLocalizations get current {
-    assert(
-      _current != null,
-      'No instance of CoreLocalizations was loaded. Try to initialize the CoreLocalizations delegate before accessing CoreLocalizations.current.',
-    );
+    assert(_current != null,
+        'No instance of CoreLocalizations was loaded. Try to initialize the CoreLocalizations delegate before accessing CoreLocalizations.current.');
     return _current!;
   }
 
@@ -43,10 +41,8 @@ class CoreLocalizations {
 
   static CoreLocalizations of(BuildContext context) {
     final instance = CoreLocalizations.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of CoreLocalizations present in the widget tree. Did you add CoreLocalizations.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of CoreLocalizations present in the widget tree. Did you add CoreLocalizations.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -56,7 +52,12 @@ class CoreLocalizations {
 
   /// `Cpa`
   String get appName {
-    return Intl.message('Cpa', name: 'appName', desc: '', args: []);
+    return Intl.message(
+      'Cpa',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Connection timeout. Please try again later.`
@@ -161,7 +162,12 @@ class CoreLocalizations {
 
   /// `Unknown`
   String get unknown {
-    return Intl.message('Unknown', name: 'unknown', desc: '', args: []);
+    return Intl.message(
+      'Unknown',
+      name: 'unknown',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Location services are disabled.`
@@ -306,27 +312,52 @@ class CoreLocalizations {
 
   /// `Ok`
   String get ok {
-    return Intl.message('Ok', name: 'ok', desc: '', args: []);
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `No`
   String get no {
-    return Intl.message('No', name: 'no', desc: '', args: []);
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Yes`
   String get yes {
-    return Intl.message('Yes', name: 'yes', desc: '', args: []);
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Loading...`
   String get loading {
-    return Intl.message('Loading...', name: 'loading', desc: '', args: []);
+    return Intl.message(
+      'Loading...',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `OR`
   String get or {
-    return Intl.message('OR', name: 'or', desc: '', args: []);
+    return Intl.message(
+      'OR',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
   }
 }
 
@@ -334,7 +365,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<CoreLocalizations> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+    ];
   }
 
   @override
