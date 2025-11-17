@@ -31,93 +31,91 @@ class CustomOfferCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        width: 140,
-        height: 240,
-        decoration: BoxDecoration(
-          gradient:
-              gradient ??
-              LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-                colors: [
-                  backgroundColor ?? AppColors.mainColor,
-                  backgroundColor != null
-                      ? backgroundColor!.withValues(alpha: 0.6)
-                      : AppColors.mainColor.withValues(alpha: 0.6),
-                ],
-              ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ?Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: const EdgeInsets.only(right: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(6),
-                    bottomRight: Radius.circular(6),
-                  ),
-                  color: badgeColor ?? AppColors.mainColor,
-                ),
-                child: Text(
-                  badgeTitle ?? "",
-                  style: context.bodySmall,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                ),
-              ),
-            ).showIf(badgeTitle != null),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: AspectRatio(
-                aspectRatio: 1 / 1,
-                child: CustomCachedNetworkImage(
-                  imageUrl: imageUrl ?? "",
-                  fit: BoxFit.contain,
-                ),
-              ),
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      width: 140,
+      height: 240,
+      decoration: BoxDecoration(
+        gradient:
+            gradient ??
+            LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: [
+                backgroundColor ?? AppColors.mainColor,
+                backgroundColor != null
+                    ? backgroundColor!.withValues(alpha: 0.6)
+                    : AppColors.mainColor.withValues(alpha: 0.6),
+              ],
             ),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ?Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: const EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(6),
+                  bottomRight: Radius.circular(6),
+                ),
+                color: badgeColor ?? AppColors.mainColor,
+              ),
               child: Text(
-                title ?? CoreLocalizations().appName,
+                badgeTitle ?? "",
                 style: context.bodySmall,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
             ),
-            const SizedBox(height: 4),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: RatingBar.builder(
-                initialRating: rating ?? 5,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemSize: 10,
-                itemCount: 5,
-                itemPadding: const EdgeInsets.symmetric(horizontal: 2),
-                itemBuilder: (context, _) => const Icon(
-                  FontAwesomeIcons.solidStar,
-                  color: Colors.amber,
-                  size: 10,
-                ),
-                unratedColor: Colors.amber.withValues(alpha: .5),
-                onRatingUpdate: (_) {},
+          ).showIf(badgeTitle != null),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: CustomCachedNetworkImage(
+                imageUrl: imageUrl ?? "",
+                fit: BoxFit.contain,
               ),
             ),
-            const SizedBox(height: 10),
-          ],
-        ),
-      ).applyTilt(borderRadius: BorderRadius.circular(20)),
-    );
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              title ?? CoreLocalizations().appName,
+              style: context.bodySmall,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: RatingBar.builder(
+              initialRating: rating ?? 5,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemSize: 10,
+              itemCount: 5,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 2),
+              itemBuilder: (context, _) => const Icon(
+                FontAwesomeIcons.solidStar,
+                color: Colors.amber,
+                size: 10,
+              ),
+              unratedColor: Colors.amber.withValues(alpha: .5),
+              onRatingUpdate: (_) {},
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
+      ),
+    ).applyBounceable(onTap: onTap);
   }
 }
