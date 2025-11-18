@@ -29,5 +29,6 @@
   "no": "No",
   "yes": "Yes",
   "loading": "Loading...",
-  "or": "OR"
+  "or": "OR",
+  "pointsRequiredToUnlock": "%d points required to unlock"
 }

@@ -18,22 +18,20 @@ class CustomWidgetWrapperItems extends StatelessWidget {
   final Color? borderColor, bgColor;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: width,
       height: height,
-      child: Container(
-        decoration: BoxDecoration(
-          color: bgColor ?? AppColors.bgColor[20],
-          border: Border.all(
-            width: borderSideWidth ?? 0.25,
-            color: borderColor ?? AppColors.blue[0]!,
-          ),
-          borderRadius: BorderRadius.circular(borderRadius ?? 16),
+      decoration: BoxDecoration(
+        color: bgColor ?? AppColors.bgColor[20],
+        border: Border.all(
+          width: borderSideWidth ?? 0.25,
+          color: borderColor ?? AppColors.blue[0]!,
         ),
-
-        padding: EdgeInsets.all(paddingItems ?? 16),
-        child: child,
+        borderRadius: BorderRadius.circular(borderRadius ?? 16),
       ),
+
+      padding: EdgeInsets.all(paddingItems ?? 16),
+      child: child,
     );
   }
 }

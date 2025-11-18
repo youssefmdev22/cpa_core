@@ -359,6 +359,16 @@ class CoreLocalizations {
       args: [],
     );
   }
+
+  /// `%d points required to unlock`
+  String get pointsRequiredToUnlock {
+    return Intl.message(
+      '%d points required to unlock',
+      name: 'pointsRequiredToUnlock',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<CoreLocalizations> {

@@ -68,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter the address"),
         "pleaseEnterValidAddress":
             MessageLookupByLibrary.simpleMessage("Please enter Valid Address"),
+        "pointsRequiredToUnlock": MessageLookupByLibrary.simpleMessage(
+            "%d points required to unlock"),
         "receiveTimeout": MessageLookupByLibrary.simpleMessage(
             "Server took too long to respond."),
         "sendTimeout": MessageLookupByLibrary.simpleMessage(
