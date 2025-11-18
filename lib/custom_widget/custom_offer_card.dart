@@ -54,41 +54,42 @@ class CustomOfferCard extends StatelessWidget {
             ),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Stack(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ?Align(
-                alignment: Alignment.topLeft,
-                child: Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 4,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(6),
-                      bottomRight: Radius.circular(6),
-                    ),
-                    color: badgeColor ?? AppColors.mainColor,
-                  ),
-                  child: Text(
-                    badgeTitle ?? "",
-                    style: context.bodySmall,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                  ),
+          ?Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: const EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 4,
+                vertical: 4,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(6),
+                  bottomRight: Radius.circular(6),
                 ),
-              ).showIf(badgeTitle != null),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: AspectRatio(
-                  aspectRatio: 1 / 1,
-                  child: ImageFiltered(
+                color: badgeColor ?? AppColors.mainColor,
+              ),
+              child: Text(
+                badgeTitle ?? "",
+                style: context.bodySmall,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            ),
+          ).showIf(badgeTitle != null),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ImageFiltered(
                     imageFilter: ImageFilter.blur(
                       sigmaX: requiredPoints != null ? 2 : 0,
                       sigmaY: requiredPoints != null ? 2 : 0,
@@ -98,62 +99,59 @@ class CustomOfferCard extends StatelessWidget {
                       fit: BoxFit.contain,
                     ),
                   ),
-                ),
+                  ?Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    spacing: 4,
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.lock,
+                        color: AppColors.white,
+                        size: 30,
+                      ),
+                      Text(
+                        CoreLocalizations.of(
+                          context,
+                        ).pointsRequiredToUnlock.format([requiredPoints ?? 0]),
+                        textAlign: TextAlign.center,
+                        style: context.bodySmall,
+                      ),
+                    ],
+                  ).showIf(requiredPoints != null)
+                ],
               ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  title ?? CoreLocalizations().appName,
-                  style: context.bodySmall,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: RatingBar.builder(
-                  initialRating: rating ?? 5,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemSize: 10,
-                  itemCount: 5,
-                  itemPadding: const EdgeInsets.symmetric(horizontal: 2),
-                  itemBuilder: (context, _) => const Icon(
-                    FontAwesomeIcons.solidStar,
-                    color: Colors.amber,
-                    size: 10,
-                  ),
-                  unratedColor: Colors.amber.withValues(alpha: .5),
-                  onRatingUpdate: (_) {},
-                ),
-              ),
-              const SizedBox(height: 10),
-            ],
-          ),
-          ?Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              spacing: 4,
-              children: [
-                const Icon(
-                  FontAwesomeIcons.lock,
-                  color: AppColors.white,
-                  size: 30,
-                ),
-                Text(
-                  CoreLocalizations.of(
-                    context,
-                  ).pointsRequiredToUnlock.format([requiredPoints ?? 0]),
-                  textAlign: TextAlign.center,
-                  style: context.bodySmall,
-                ),
-              ],
             ),
-          ).showIf(requiredPoints != null),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              title ?? CoreLocalizations().appName,
+              style: context.bodySmall,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: RatingBar.builder(
+              initialRating: rating ?? 5,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemSize: 10,
+              itemCount: 5,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 2),
+              itemBuilder: (context, _) => const Icon(
+                FontAwesomeIcons.solidStar,
+                color: Colors.amber,
+                size: 10,
+              ),
+              unratedColor: Colors.amber.withValues(alpha: .5),
+              onRatingUpdate: (_) {},
+            ),
+          ),
+          const SizedBox(height: 10),
         ],
       ),
     ).applyBounceable(onTap: requiredPoints != null ? () {} : onTap);
