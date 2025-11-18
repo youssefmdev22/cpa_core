@@ -43,6 +43,7 @@ abstract class AppColors {
     140: Color(0xFF33485D),
     150: Color(0xFF2A2E37),
     160: Color(0xFF2E2E2E),
+    170: Color(0xff808390),
   });
 
   static const MaterialColor purple = MaterialColor(0xFF7C5CFF, <int, Color>{
