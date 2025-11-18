@@ -7,6 +7,7 @@ Future customAuthDialog(
   required double width,
   required double height,
   required Widget child,
+  bool backgroundGradient = false,
 }) {
   return showDialog(
     context: context,
@@ -18,15 +19,17 @@ Future customAuthDialog(
         height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromRGBO(1, 214, 118, 0.5),
-              Color.fromRGBO(1, 214, 118, 0.0),
-            ],
-            stops: [0.0, 0.4],
-          ),
+          gradient: backgroundGradient
+              ? const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color.fromRGBO(1, 214, 118, 0.5),
+                    Color.fromRGBO(1, 214, 118, 0.0),
+                  ],
+                  stops: [0.0, 0.4],
+                )
+              : null,
         ),
         child: Padding(
           padding: EdgeInsets.all(24),
