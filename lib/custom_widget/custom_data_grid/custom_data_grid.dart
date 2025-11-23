@@ -1,4 +1,4 @@
-import 'package:cpa_core/cpa_core.dart';
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_data_grid_controller.dart';
@@ -8,7 +8,11 @@ class CustomDataGrid extends StatelessWidget {
   final CustomDataGridController controller;
   final bool isEditable;
 
-  const CustomDataGrid({super.key, required this.controller, this.isEditable = true});
+  const CustomDataGrid({
+    super.key,
+    required this.controller,
+    this.isEditable = true,
+  });
 
   @override
   Widget build(BuildContext context) {

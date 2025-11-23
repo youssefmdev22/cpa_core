@@ -1,6 +1,7 @@
-import 'package:cpa_core/cpa_core.dart';
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/app_colors.dart';
 import 'custom_column_model.dart';
 import 'custom_data_button_model.dart';
 import 'custom_data_grid_model.dart';
