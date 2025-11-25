@@ -91,13 +91,14 @@ abstract class AppTheme {
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
           backgroundColor: AppColors.mainColor,
           disabledBackgroundColor: AppColors.black[30],
           foregroundColor: AppColors.white,
           textStyle: getTextStyle(
             fontWeight: FontWeight.w500,
           ).responsiveFont(context, fontSize: 16),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         ),
       ),
 
