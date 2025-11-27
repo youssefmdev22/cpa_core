@@ -30,5 +30,6 @@
   "yes": "Yes",
   "loading": "Loading...",
   "or": "OR",
-  "pointsRequiredToUnlock": "%d points required to unlock"
+  "pointsRequiredToUnlock": "%d points required to unlock",
+  "done": "Done"
 }
