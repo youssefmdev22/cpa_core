@@ -133,7 +133,7 @@ class CustomOfferCard extends StatelessWidget {
           ?Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: RatingBar.builder(
-              initialRating: rating ?? 5,
+              initialRating: rating!,
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemSize: 10,
