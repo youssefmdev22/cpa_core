@@ -61,10 +61,7 @@ class CustomOfferCard extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Container(
               margin: const EdgeInsets.only(right: 10),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 4,
-                vertical: 4,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
@@ -117,7 +114,7 @@ class CustomOfferCard extends StatelessWidget {
                         style: context.bodySmall,
                       ),
                     ],
-                  ).showIf(requiredPoints != null)
+                  ).showIf(requiredPoints != null),
                 ],
               ),
             ),
@@ -133,11 +130,10 @@ class CustomOfferCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          if (rating != null)
-            Padding(
+          ?Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: RatingBar.builder(
-              initialRating: rating!,
+              initialRating: rating ?? 5,
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemSize: 10,
@@ -151,7 +147,7 @@ class CustomOfferCard extends StatelessWidget {
               unratedColor: Colors.amber.withValues(alpha: .5),
               onRatingUpdate: (_) {},
             ),
-          ),
+          ).showIf(rating != null),
           const SizedBox(height: 10),
         ],
       ),
