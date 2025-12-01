@@ -379,6 +379,26 @@ class CoreLocalizations {
       args: [],
     );
   }
+
+  /// `Prize`
+  String get prize {
+    return Intl.message(
+      'Prize',
+      name: 'prize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknow`
+  String get unKnow {
+    return Intl.message(
+      'Unknow',
+      name: 'unKnow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<CoreLocalizations> {

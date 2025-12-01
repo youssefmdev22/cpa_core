@@ -94,4 +94,7 @@ abstract class AppColors {
     10: Color(0xFF11161D),
     20: Color(0xFF11161d),
   });
+  static const gold = [Color(0xFFFFE066), Color(0xFFFFC107)];
+  static const silver = [Color(0xFFE0E0E0), Color(0xFFB5B5B5)];
+  static const bronze = [Color(0xFFE3A15D), Color(0xFFB06C3B)];
 }

@@ -31,5 +31,7 @@
   "loading": "Loading...",
   "or": "OR",
   "pointsRequiredToUnlock": "%d points required to unlock",
-  "done": "Done"
+  "done": "Done",
+  "prize": "Prize",
+  "unKnow": "Unknow"
 }
