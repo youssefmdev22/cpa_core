@@ -1,5 +1,4 @@
 import 'package:cpa_core/cpa_core.dart';
-import 'package:cpa_core/utils/build_avatar_url.dart';
 import 'package:flutter/material.dart';
 
 class CustomProfileImage extends StatelessWidget {
