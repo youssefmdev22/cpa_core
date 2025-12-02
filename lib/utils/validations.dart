@@ -91,4 +91,14 @@ class Validations {
 
     return null;
   }
+
+  static String? validateCashoutEmail(String? val) {
+    if (val == null) {
+      return CoreLocalizations().emailIsRequired;
+    } else if (val.trim().isEmpty) {
+      return CoreLocalizations().emailIsRequired;
+    } else {
+      return null;
+    }
+  }
 }
