@@ -10,7 +10,9 @@ class CustomRankingCardTopAccount extends StatelessWidget {
     this.bgColor,
     this.gradientColors,
     this.hasGradient = true,
+    this.isButtonBorder = false,
   });
+  final bool isButtonBorder;
   final Widget child;
   final double? width, height, borderRadius;
   final Color? bgColor;
@@ -26,6 +28,12 @@ class CustomRankingCardTopAccount extends StatelessWidget {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(borderRadius ?? 16),
           topRight: Radius.circular(borderRadius ?? 16),
+          bottomLeft: isButtonBorder == true
+              ? Radius.circular(borderRadius ?? 16)
+              : Radius.circular(0),
+          bottomRight: isButtonBorder == true
+              ? Radius.circular(borderRadius ?? 16)
+              : Radius.circular(0),
         ),
         gradient: hasGradient == true
             ? LinearGradient(

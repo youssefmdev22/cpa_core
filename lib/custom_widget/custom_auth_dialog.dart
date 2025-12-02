@@ -7,7 +7,10 @@ Future customAuthDialog(
   required double width,
   required double height,
   required Widget child,
+  double? firstPadding,
+  double? secondPadding,
   bool backgroundGradient = false,
+  final bool? closedBorder = false,
 }) {
   return showDialog(
     context: context,
@@ -32,7 +35,7 @@ Future customAuthDialog(
               : null,
         ),
         child: Padding(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.all(firstPadding ?? 24),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -43,10 +46,12 @@ Future customAuthDialog(
                       onTap: () => Navigator.pop(context),
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).colorScheme.primary,
-                            width: 1,
-                          ),
+                          border: closedBorder == true
+                              ? Border.all(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  width: 1,
+                                )
+                              : null,
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
@@ -57,7 +62,10 @@ Future customAuthDialog(
                     ),
                   ],
                 ),
-                Padding(padding: EdgeInsets.all(24), child: child),
+                Padding(
+                  padding: EdgeInsets.all(secondPadding ?? 24),
+                  child: child,
+                ),
               ],
             ),
           ),
