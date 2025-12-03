@@ -33,5 +33,7 @@
   "pointsRequiredToUnlock": "%d points required to unlock",
   "done": "Done",
   "prize": "Prize",
-  "unKnow": "Unknow"
+  "unKnow": "Unknow",
+  "success": "Success",
+  "error": "Error"
 }

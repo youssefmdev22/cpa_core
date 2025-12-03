@@ -28,6 +28,7 @@ export 'enums/show_password_enum.dart';
 export 'custom_widget/custom_ranking_top_achiever.dart';
 export 'custom_widget/custom_ranking_card_top_account.dart';
 export 'custom_widget/custom_rank_icon.dart';
+export 'custom_widget/custom_toastification.dart';
 //packages
 export 'package:dio/dio.dart';
 export 'package:cached_network_image/cached_network_image.dart';
@@ -39,3 +40,4 @@ export 'package:flutter_rating_bar/flutter_rating_bar.dart';
 export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 export 'package:intl/intl.dart';
 export 'package:flutter_svg/svg.dart';
+export 'package:toastification/toastification.dart';

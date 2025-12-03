@@ -22,66 +22,92 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("Cpa"),
-        "badCertificate": MessageLookupByLibrary.simpleMessage(
-            "Bad certificate. Please check your device date/time."),
-        "badResponse": MessageLookupByLibrary.simpleMessage(
-            "Unexpected error response from server"),
-        "connectionError": MessageLookupByLibrary.simpleMessage(
-            "Network error. Please check your internet connection."),
-        "connectionTimeout": MessageLookupByLibrary.simpleMessage(
-            "Connection timeout. Please try again later."),
-        "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
-            "Request was cancelled. Please retry."),
-        "done": MessageLookupByLibrary.simpleMessage("Done"),
-        "emailIsRequired":
-            MessageLookupByLibrary.simpleMessage("email is required"),
-        "enterNumbersOnly":
-            MessageLookupByLibrary.simpleMessage("Enter numbers only"),
-        "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
-            "Enter valid Egyptian Phone number"),
-        "enterValidEmail":
-            MessageLookupByLibrary.simpleMessage("enter valid email"),
-        "enterValidUsername":
-            MessageLookupByLibrary.simpleMessage("Enter valid username"),
-        "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
-            "Enter value must equal 11 digit"),
-        "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
-            "Failed to parse error response."),
-        "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
-        "locationPermissionDenied":
-            MessageLookupByLibrary.simpleMessage("Location permission denied."),
-        "locationPermissionPermanentlyDenied":
-            MessageLookupByLibrary.simpleMessage(
-                "Location permission permanently denied."),
-        "locationServicesAreDisabled": MessageLookupByLibrary.simpleMessage(
-            "Location services are disabled."),
-        "no": MessageLookupByLibrary.simpleMessage("No"),
-        "noResponse": MessageLookupByLibrary.simpleMessage(
-            "No response received from server."),
-        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
-        "or": MessageLookupByLibrary.simpleMessage("OR"),
-        "passwordIsRequired":
-            MessageLookupByLibrary.simpleMessage("password is required"),
-        "passwordNotMatched":
-            MessageLookupByLibrary.simpleMessage("password Not Matched"),
-        "pleaseEnterAddress":
-            MessageLookupByLibrary.simpleMessage("Please enter the address"),
-        "pleaseEnterValidAddress":
-            MessageLookupByLibrary.simpleMessage("Please enter Valid Address"),
-        "pointsRequiredToUnlock": MessageLookupByLibrary.simpleMessage(
-            "%d points required to unlock"),
-        "prize": MessageLookupByLibrary.simpleMessage("Prize"),
-        "receiveTimeout": MessageLookupByLibrary.simpleMessage(
-            "Server took too long to respond."),
-        "sendTimeout": MessageLookupByLibrary.simpleMessage(
-            "Request timed out. Please try again."),
-        "thisFieldIsRequired":
-            MessageLookupByLibrary.simpleMessage("This field is required"),
-        "unKnow": MessageLookupByLibrary.simpleMessage("Unknow"),
-        "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
-        "unknownError": MessageLookupByLibrary.simpleMessage(
-            "An unexpected error occurred:"),
-        "yes": MessageLookupByLibrary.simpleMessage("Yes")
-      };
+    "appName": MessageLookupByLibrary.simpleMessage("Cpa"),
+    "badCertificate": MessageLookupByLibrary.simpleMessage(
+      "Bad certificate. Please check your device date/time.",
+    ),
+    "badResponse": MessageLookupByLibrary.simpleMessage(
+      "Unexpected error response from server",
+    ),
+    "connectionError": MessageLookupByLibrary.simpleMessage(
+      "Network error. Please check your internet connection.",
+    ),
+    "connectionTimeout": MessageLookupByLibrary.simpleMessage(
+      "Connection timeout. Please try again later.",
+    ),
+    "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
+      "Request was cancelled. Please retry.",
+    ),
+    "done": MessageLookupByLibrary.simpleMessage("Done"),
+    "emailIsRequired": MessageLookupByLibrary.simpleMessage(
+      "email is required",
+    ),
+    "enterNumbersOnly": MessageLookupByLibrary.simpleMessage(
+      "Enter numbers only",
+    ),
+    "enterValidEgyptianPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Enter valid Egyptian Phone number",
+    ),
+    "enterValidEmail": MessageLookupByLibrary.simpleMessage(
+      "enter valid email",
+    ),
+    "enterValidUsername": MessageLookupByLibrary.simpleMessage(
+      "Enter valid username",
+    ),
+    "enterValueMustEqual11Digit": MessageLookupByLibrary.simpleMessage(
+      "Enter value must equal 11 digit",
+    ),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
+      "Failed to parse error response.",
+    ),
+    "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+    "locationPermissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Location permission denied.",
+    ),
+    "locationPermissionPermanentlyDenied": MessageLookupByLibrary.simpleMessage(
+      "Location permission permanently denied.",
+    ),
+    "locationServicesAreDisabled": MessageLookupByLibrary.simpleMessage(
+      "Location services are disabled.",
+    ),
+    "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noResponse": MessageLookupByLibrary.simpleMessage(
+      "No response received from server.",
+    ),
+    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+    "or": MessageLookupByLibrary.simpleMessage("OR"),
+    "passwordIsRequired": MessageLookupByLibrary.simpleMessage(
+      "password is required",
+    ),
+    "passwordNotMatched": MessageLookupByLibrary.simpleMessage(
+      "password Not Matched",
+    ),
+    "pleaseEnterAddress": MessageLookupByLibrary.simpleMessage(
+      "Please enter the address",
+    ),
+    "pleaseEnterValidAddress": MessageLookupByLibrary.simpleMessage(
+      "Please enter Valid Address",
+    ),
+    "pointsRequiredToUnlock": MessageLookupByLibrary.simpleMessage(
+      "%d points required to unlock",
+    ),
+    "prize": MessageLookupByLibrary.simpleMessage("Prize"),
+    "receiveTimeout": MessageLookupByLibrary.simpleMessage(
+      "Server took too long to respond.",
+    ),
+    "sendTimeout": MessageLookupByLibrary.simpleMessage(
+      "Request timed out. Please try again.",
+    ),
+    "success": MessageLookupByLibrary.simpleMessage("Success"),
+    "thisFieldIsRequired": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
+    ),
+    "unKnow": MessageLookupByLibrary.simpleMessage("Unknow"),
+    "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
+    "unknownError": MessageLookupByLibrary.simpleMessage(
+      "An unexpected error occurred:",
+    ),
+    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+  };
 }
