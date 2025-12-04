@@ -13,10 +13,12 @@ class CustomRankingTopAchiever extends StatelessWidget {
     this.name,
     this.imageUrl,
     this.nameColor,
+    required this.rankIconSvg,
   });
   final String? rankNumber, name, imageUrl;
+  final String rankIconSvg;
   final double? widthProfileImage;
-  final Color? rankColor, rankNumberColor , nameColor;
+  final Color? rankColor, rankNumberColor, nameColor;
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class CustomRankingTopAchiever extends StatelessWidget {
                   rankNumber: rankNumber,
                   rankNumberColor: rankNumberColor,
                   iconColor: rankColor,
+                  rankIconSvg: rankIconSvg,
                 ),
               ),
             ],
@@ -66,7 +69,7 @@ class CustomRankingTopAchiever extends StatelessWidget {
             Text(
               name ?? local.unKnow,
               style: context.textTheme.bodyMedium?.copyWith(
-                color: nameColor?? AppColors.white,
+                color: nameColor ?? AppColors.white,
                 fontWeight: FontWeight.w500,
               ),
             ),

@@ -1,4 +1,3 @@
-import 'package:cpa_core/constants/core_icons.dart';
 import 'package:cpa_core/cpa_core.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +8,10 @@ class CustomRankIcon extends StatelessWidget {
     this.rankNumberColor,
     this.size,
     this.iconColor,
+    required this.rankIconSvg,
   });
   final String? rankNumber;
+  final String rankIconSvg;
   final Color? rankNumberColor, iconColor;
   final double? size;
   @override
@@ -19,7 +20,7 @@ class CustomRankIcon extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         SvgPicture.asset(
-          CoreIcons.rankingShape,
+          rankIconSvg,
           width: size ?? 25,
           colorFilter: ColorFilter.mode(
             iconColor ?? AppColors.gold[1],
