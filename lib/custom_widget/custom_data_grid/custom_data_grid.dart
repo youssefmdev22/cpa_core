@@ -1,4 +1,5 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:cpa_core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_data_grid_controller.dart';
@@ -17,7 +18,9 @@ class CustomDataGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
-      border: TableBorder.all(),
+      border: TableBorder(
+        horizontalInside: BorderSide(color: AppColors.gray[130]!, width: 1),
+      ),
       children: [
         TableRow(
           children: controller.columns
