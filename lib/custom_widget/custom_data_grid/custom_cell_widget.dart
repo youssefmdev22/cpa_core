@@ -61,6 +61,9 @@ class CustomCellWidget extends StatelessWidget {
           buttons: column.buttons!,
         );
 
+      case CustomColumnType.custom:
+        return column.childBuilder?.call(index, row) ?? SizedBox();
+
       default:
         return _textCell(context: context, value: value);
     }
@@ -70,7 +73,9 @@ class CustomCellWidget extends StatelessWidget {
     return Text(
       textAlign: TextAlign.center,
       value.toString(),
-      style: context.bodyMedium,
+      style: context.bodySmall?.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
     );
   }
 
@@ -83,7 +88,8 @@ class CustomCellWidget extends StatelessWidget {
       onPressed: () => buttons[0].onTap(index, row),
       child: Text(
         value,
-        style: context.bodyMedium?.copyWith(
+        style: column.columnTextStyle ?? context.bodySmall?.copyWith(
+          fontWeight: FontWeight.w600,
           color: AppColors.blue,
           decoration: TextDecoration.underline,
           decorationColor: AppColors.blue,
@@ -99,7 +105,9 @@ class CustomCellWidget extends StatelessWidget {
     return SelectableText(
       textAlign: TextAlign.center,
       value.toString(),
-      style: context.bodyMedium,
+      style: column.columnTextStyle ?? context.bodySmall?.copyWith(
+        fontWeight: FontWeight.w600,
+      ),
     );
   }
 

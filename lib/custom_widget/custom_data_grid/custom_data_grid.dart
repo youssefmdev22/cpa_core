@@ -31,7 +31,12 @@ class CustomDataGrid extends StatelessWidget {
                     child: Text(
                       textAlign: TextAlign.center,
                       c.column.toUpperCase(),
-                      style: context.bodyLarge,
+                      style:
+                          c.columnTextStyle ??
+                          context.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.gray[70],
+                          ),
                     ),
                   ),
                 ),
