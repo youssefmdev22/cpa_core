@@ -30,6 +30,7 @@ export 'custom_widget/custom_ranking_card_top_account.dart';
 export 'custom_widget/custom_rank_icon.dart';
 export 'custom_widget/custom_toastification.dart';
 export 'custom_widget/custom_pagination.dart';
+export 'custom_widget/custom_shimmer_loading.dart';
 //packages
 export 'package:dio/dio.dart';
 export 'package:cached_network_image/cached_network_image.dart';
