@@ -12,8 +12,12 @@ class CustomPagination extends StatelessWidget {
   Widget build(BuildContext context) {
     return NumberPaginator(
       numberPages: numberPages,
-      initialPage: initialPage,
-      onPageChange: onPageChange,
+      initialPage: initialPage -1,
+      onPageChange: (index){
+        if (onPageChange != null) {
+          onPageChange!(index + 1);
+        }
+      },
       controller: controller,
       child: const SizedBox(
         height: 48,
