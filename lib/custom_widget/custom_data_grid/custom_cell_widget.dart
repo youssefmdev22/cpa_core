@@ -73,7 +73,7 @@ class CustomCellWidget extends StatelessWidget {
     return Text(
       textAlign: TextAlign.center,
       value.toString(),
-      style: context.bodySmall?.copyWith(
+      style: column.columnTextStyle ??  context.bodySmall?.copyWith(
         fontWeight: FontWeight.w600,
       ),
     );
