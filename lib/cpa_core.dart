@@ -31,6 +31,7 @@ export 'custom_widget/custom_rank_icon.dart';
 export 'custom_widget/custom_toastification.dart';
 export 'custom_widget/custom_pagination.dart';
 export 'custom_widget/custom_shimmer_loading.dart';
+export 'custom_widget/custom_statistics_rocket_widgets.dart';
 //packages
 export 'package:dio/dio.dart';
 export 'package:cached_network_image/cached_network_image.dart';

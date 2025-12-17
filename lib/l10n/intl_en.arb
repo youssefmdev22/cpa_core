@@ -35,5 +35,13 @@
   "prize": "Prize",
   "unKnow": "Unknow",
   "success": "Success",
-  "error": "Error"
+  "error": "Error",
+  "age": "age",
+  "minute": "minute",
+  "hour": "hour",
+  "day": "day",
+  "week": "week",
+  "month": "month",
+  "year": "year",
+  "justNow": "just now"
 }

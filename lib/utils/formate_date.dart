@@ -1,3 +1,4 @@
+import 'package:cpa_core/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 abstract class FormateDate {
@@ -37,6 +38,36 @@ abstract class FormateDate {
   /// 10 December 2025 at 14:22
   static String fullWithTime(String? dateStr) =>
       _format(dateStr, DateFormat('d MMMM yyyy at HH:mm'));
+  // 🆕 Example: 12 hours ago | 1 day ago
+  static String formatRelative(String? dateStr) {
+    if (dateStr == null) return CoreLocalizations().justNow;
+
+    try {
+      final date = DateTime.parse(dateStr);
+      final diff = DateTime.now().difference(date);
+
+      if (diff.inSeconds < 60) {
+        return CoreLocalizations().justNow;
+      } else if (diff.inMinutes < 60) {
+        return '${diff.inMinutes} ${CoreLocalizations().minute} ${CoreLocalizations().age}';
+      } else if (diff.inHours < 24) {
+        return '${diff.inHours} ${CoreLocalizations().hour} ${CoreLocalizations().age}';
+      } else if (diff.inDays < 7) {
+        return '${diff.inDays} ${CoreLocalizations().day} ${CoreLocalizations().age}';
+      } else if (diff.inDays < 30) {
+        final weeks = (diff.inDays / 7).floor();
+        return '$weeks ${CoreLocalizations().week} ${CoreLocalizations().age}';
+      } else if (diff.inDays < 365) {
+        final months = (diff.inDays / 30).floor();
+        return '$months ${CoreLocalizations().month} ${CoreLocalizations().age}';
+      } else {
+        final years = (diff.inDays / 365).floor();
+        return '$years ${CoreLocalizations().year} ${CoreLocalizations().age}';
+      }
+    } catch (_) {
+      return CoreLocalizations().justNow;
+    }
+  }
 
   /// Private shared formatter
   static String _format(String? dateStr, DateFormat formatter) {

@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "age": MessageLookupByLibrary.simpleMessage("age"),
         "appName": MessageLookupByLibrary.simpleMessage("Cpa"),
         "badCertificate": MessageLookupByLibrary.simpleMessage(
             "Bad certificate. Please check your device date/time."),
@@ -31,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Network error. Please check your internet connection."),
         "connectionTimeout": MessageLookupByLibrary.simpleMessage(
             "Connection timeout. Please try again later."),
+        "day": MessageLookupByLibrary.simpleMessage("day"),
         "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
             "Request was cancelled. Please retry."),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
@@ -49,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "failedToParseResponse": MessageLookupByLibrary.simpleMessage(
             "Failed to parse error response."),
+        "hour": MessageLookupByLibrary.simpleMessage("hour"),
+        "justNow": MessageLookupByLibrary.simpleMessage("just now"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "locationPermissionDenied":
             MessageLookupByLibrary.simpleMessage("Location permission denied."),
@@ -57,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Location permission permanently denied."),
         "locationServicesAreDisabled": MessageLookupByLibrary.simpleMessage(
             "Location services are disabled."),
+        "minute": MessageLookupByLibrary.simpleMessage("minute"),
+        "month": MessageLookupByLibrary.simpleMessage("month"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noResponse": MessageLookupByLibrary.simpleMessage(
             "No response received from server."),
@@ -84,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "An unexpected error occurred:"),
+        "week": MessageLookupByLibrary.simpleMessage("week"),
+        "year": MessageLookupByLibrary.simpleMessage("year"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }
