@@ -121,6 +121,7 @@ class CustomCellWidget extends StatelessWidget {
       children: buttons
           .map(
             (b) => Material(
+              color: Colors.transparent,
               child: Ink(
                 decoration: ShapeDecoration(
                   color: b.color,
