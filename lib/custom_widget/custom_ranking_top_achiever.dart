@@ -61,25 +61,33 @@ class CustomRankingTopAchiever extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 30),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          spacing: 4,
-          children: [
-            Text(
-              name ?? local.unKnow,
-              style: context.textTheme.bodyMedium?.copyWith(
-                color: nameColor ?? AppColors.white,
-                fontWeight: FontWeight.w500,
+        SizedBox(
+          width: 155,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 4,
+            children: [
+              Flexible(
+                fit: FlexFit.loose,
+                child: Text(
+                  name ?? local.unKnow,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: nameColor ?? AppColors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-            Icon(
-              Icons.open_in_new_rounded,
-              size: 18,
-              color: AppColors.gray[90],
-              fontWeight: FontWeight.w400,
-            ).applyBounceable(onTap: onTap),
-          ],
+              Icon(
+                Icons.open_in_new_rounded,
+                size: 18,
+                color: AppColors.gray[90],
+                fontWeight: FontWeight.w400,
+              ).applyBounceable(onTap: onTap),
+            ],
+          ),
         ),
         const SizedBox(height: AppMeasurements.paddingSmall),
         Text(
