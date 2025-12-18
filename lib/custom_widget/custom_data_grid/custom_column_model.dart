@@ -11,7 +11,7 @@ class CustomColumnModel {
   final String column;
   final CustomColumnType type;
   final List<CustomDataButtonModel>? buttons;
-  final TextStyle? columnTextStyle;
+  final Map<int, TextStyle>? columnTextStyle;
   final CustomDataChildBuilder? childBuilder;
 
   CustomColumnModel({

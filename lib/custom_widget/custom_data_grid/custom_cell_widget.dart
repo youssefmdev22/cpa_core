@@ -73,7 +73,7 @@ class CustomCellWidget extends StatelessWidget {
     return Text(
       textAlign: TextAlign.center,
       value.toString(),
-      style: column.columnTextStyle ??  context.bodySmall?.copyWith(
+      style: column.columnTextStyle?[1] ??  context.bodySmall?.copyWith(
         fontWeight: FontWeight.w600,
       ),
     );
@@ -88,7 +88,7 @@ class CustomCellWidget extends StatelessWidget {
       onPressed: () => buttons[0].onTap(index, row),
       child: Text(
         value,
-        style: column.columnTextStyle ?? context.bodySmall?.copyWith(
+        style: column.columnTextStyle?[1] ?? context.bodySmall?.copyWith(
           fontWeight: FontWeight.w600,
           color: AppColors.blue,
           decoration: TextDecoration.underline,
@@ -105,7 +105,7 @@ class CustomCellWidget extends StatelessWidget {
     return SelectableText(
       textAlign: TextAlign.center,
       value.toString(),
-      style: column.columnTextStyle ?? context.bodySmall?.copyWith(
+      style: column.columnTextStyle?[1] ?? context.bodySmall?.copyWith(
         fontWeight: FontWeight.w600,
       ),
     );
@@ -120,24 +120,26 @@ class CustomCellWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: buttons
           .map(
-            (b) => Ink(
-              decoration: ShapeDecoration(
-                color: b.color,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(2)),
-                ),
-              ),
-              child: IconButton(
-                style: IconButton.styleFrom(
+            (b) => Material(
+              child: Ink(
+                decoration: ShapeDecoration(
+                  color: b.color,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(2)),
                   ),
                 ),
-                icon: Icon(b.icon),
-                color: AppColors.white,
-                onPressed: () {
-                  b.onTap(index, row);
-                },
+                child: IconButton(
+                  style: IconButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(2)),
+                    ),
+                  ),
+                  icon: Icon(b.icon),
+                  color: AppColors.white,
+                  onPressed: () {
+                    b.onTap(index, row);
+                  },
+                ),
               ),
             ),
           )
