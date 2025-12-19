@@ -88,6 +88,8 @@ abstract class AppColors {
 
   static const Color red = Color(0xffCC1010);
 
+  static const Color primaryButtonColor = Color(0xff0d6efd);
+
   static const Color borderFieldColor = Color(0xff3f424d);
 
   static const MaterialColor bgColor = MaterialColor(0xff0b0f14, <int, Color>{
