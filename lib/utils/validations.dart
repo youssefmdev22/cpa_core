@@ -101,4 +101,12 @@ class Validations {
       return null;
     }
   }
+
+  static String? validateCode(String? val) {
+    if (val == null || val.trim().isEmpty || val.trim().length != 6) {
+      return CoreLocalizations().pleaseEnterValidCode;
+    } else {
+      return null;
+    }
+  }
 }

@@ -310,6 +310,16 @@ class CoreLocalizations {
     );
   }
 
+  /// `Please enter valid code`
+  String get pleaseEnterValidCode {
+    return Intl.message(
+      'Please enter valid code',
+      name: 'pleaseEnterValidCode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get ok {
     return Intl.message(

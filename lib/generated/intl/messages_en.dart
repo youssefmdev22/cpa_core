@@ -76,6 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter the address"),
         "pleaseEnterValidAddress":
             MessageLookupByLibrary.simpleMessage("Please enter Valid Address"),
+        "pleaseEnterValidCode":
+            MessageLookupByLibrary.simpleMessage("Please enter valid code"),
         "pointsRequiredToUnlock": MessageLookupByLibrary.simpleMessage(
             "%d points required to unlock"),
         "prize": MessageLookupByLibrary.simpleMessage("Prize"),
