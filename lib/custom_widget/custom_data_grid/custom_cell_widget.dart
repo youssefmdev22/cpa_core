@@ -73,6 +73,8 @@ class CustomCellWidget extends StatelessWidget {
     return Text(
       textAlign: TextAlign.center,
       value.toString(),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
       style: column.columnTextStyle?[1] ??  context.bodySmall?.copyWith(
         fontWeight: FontWeight.w600,
       ),
@@ -88,6 +90,8 @@ class CustomCellWidget extends StatelessWidget {
       onPressed: () => buttons[0].onTap(index, row),
       child: Text(
         value,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
         style: column.columnTextStyle?[1] ?? context.bodySmall?.copyWith(
           fontWeight: FontWeight.w600,
           color: AppColors.blue,
@@ -105,7 +109,9 @@ class CustomCellWidget extends StatelessWidget {
     return SelectableText(
       textAlign: TextAlign.center,
       value.toString(),
+      maxLines: 1,
       style: column.columnTextStyle?[1] ?? context.bodySmall?.copyWith(
+        overflow: TextOverflow.ellipsis,
         fontWeight: FontWeight.w600,
       ),
     );
