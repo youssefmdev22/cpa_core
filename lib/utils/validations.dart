@@ -109,4 +109,17 @@ class Validations {
       return null;
     }
   }
+
+  static String? validateNumberOnly(String? val) {
+    final regex = RegExp(r'^[1-9][0-9]*$');
+
+    if (val == null || val.trim().isEmpty) {
+      return CoreLocalizations().pleaseEnterValidNumber;
+    }
+
+    if (!regex.hasMatch(val.trim())) {
+      return CoreLocalizations().pleaseEnterValidNumber;
+    }
+    return null;
+  }
 }

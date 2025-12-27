@@ -320,6 +320,16 @@ class CoreLocalizations {
     );
   }
 
+  /// `Please enter valid number`
+  String get pleaseEnterValidNumber {
+    return Intl.message(
+      'Please enter valid number',
+      name: 'pleaseEnterValidNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get ok {
     return Intl.message(
