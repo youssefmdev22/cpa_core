@@ -122,4 +122,11 @@ class Validations {
     }
     return null;
   }
+
+  static String? validateEmpty(String? val) {
+    if (val == null || val.trim().isEmpty) {
+      return CoreLocalizations().thisFieldIsRequired;
+    }
+    return null;
+  }
 }
