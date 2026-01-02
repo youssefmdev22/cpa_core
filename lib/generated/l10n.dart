@@ -330,6 +330,16 @@ class CoreLocalizations {
     );
   }
 
+  /// `Please enter valid url`
+  String get pleaseEnterValidUrl {
+    return Intl.message(
+      'Please enter valid url',
+      name: 'pleaseEnterValidUrl',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get ok {
     return Intl.message(

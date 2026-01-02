@@ -138,7 +138,7 @@ class Validations {
     final uri = Uri.tryParse(val.trim());
 
     if (uri == null || (!uri.hasAuthority && uri.host.isEmpty)) {
-      return CoreLocalizations().thisFieldIsRequired;
+      return CoreLocalizations().pleaseEnterValidUrl;
     }
     return null;
   }
