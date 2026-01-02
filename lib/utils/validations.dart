@@ -129,4 +129,18 @@ class Validations {
     }
     return null;
   }
+
+  static String? validateUrl(String? val) {
+    if (val == null || val.trim().isEmpty) {
+      return CoreLocalizations().thisFieldIsRequired;
+    }
+
+    final uri = Uri.tryParse(val.trim());
+
+    if (uri == null || (!uri.hasAuthority && uri.host.isEmpty)) {
+      return CoreLocalizations().thisFieldIsRequired;
+    }
+    return null;
+  }
+
 }
