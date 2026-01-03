@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../generated/l10n.dart';
+import 'error_codes.dart';
 
 String handleDioError(DioException error) {
   switch (error.type) {
@@ -37,7 +38,12 @@ String _extractErrorMessageFromResponse(Response? response) {
     final data = response.data;
     if (data is Map) {
       // Handles common formats
-      if (data.containsKey('message')) return data['message'];
+      if (data.containsKey('message')) {
+        final msg = data['message'].toString();
+        final mapped = ErrorCodes.all[msg];
+        return mapped ?? msg;
+      }
+
       if (data.containsKey('error')) return data['error'];
       if (data.containsKey('errors')) {
         // Laravel-style validation errors
