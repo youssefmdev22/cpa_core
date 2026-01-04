@@ -50,10 +50,10 @@ class CoreLocalizations {
     return Localizations.of<CoreLocalizations>(context, CoreLocalizations);
   }
 
-  /// `Cpa`
+  /// `Zlunix`
   String get appName {
     return Intl.message(
-      'Cpa',
+      'Zlunix',
       name: 'appName',
       desc: '',
       args: [],
