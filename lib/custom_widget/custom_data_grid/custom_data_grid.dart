@@ -17,40 +17,58 @@ class CustomDataGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Table(
-      border: TableBorder(
-        horizontalInside: BorderSide(color: AppColors.gray[130]!, width: 1),
-      ),
-      children: [
-        TableRow(
-          children: controller.columns
-              .map(
-                (c) => TableCell(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      c.column.toUpperCase(),
-                      style:
-                          c.columnTextStyle?[0] ??
-                          context.bodySmall?.copyWith(
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.gray[70],
-                          ),
-                    ),
-                  ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: constraints.maxWidth
+            ),
+            child: Table(
+              defaultColumnWidth: constraints.maxWidth <= 600
+                  ? const IntrinsicColumnWidth()
+                  : const FlexColumnWidth(),
+              border: TableBorder(
+                horizontalInside: BorderSide(
+                  color: AppColors.gray[130]!,
+                  width: 1,
                 ),
-              )
-              .toList(),
-        ),
-        for (int i = 0; i < controller.rows.length; i++)
-          CustomDataRow(
-            columns: controller.columns,
-            row: controller.rows[i],
-            index: i,
-            isEditable: isEditable,
+              ),
+              children: [
+                TableRow(
+                  children: controller.columns
+                      .map(
+                        (c) => TableCell(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          c.column.toUpperCase(),
+                          style:
+                          c.columnTextStyle?[0] ??
+                              context.bodySmall?.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.gray[70],
+                              ),
+                        ),
+                      ),
+                    ),
+                  )
+                      .toList(),
+                ),
+                for (int i = 0; i < controller.rows.length; i++)
+                  CustomDataRow(
+                    columns: controller.columns,
+                    row: controller.rows[i],
+                    index: i,
+                    isEditable: isEditable,
+                  ),
+              ],
+            ),
           ),
-      ],
+        );
+      },
     );
   }
 }
