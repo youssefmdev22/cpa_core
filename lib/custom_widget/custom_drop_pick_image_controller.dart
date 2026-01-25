@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_dropzone/flutter_dropzone.dart';
+import 'handlers/dropzone_platform_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CustomDropPickImageController extends ChangeNotifier {

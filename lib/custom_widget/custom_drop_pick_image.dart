@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dropzone/flutter_dropzone.dart';
+import 'handlers/dropzone_platform_interface.dart';
 
 import '../constants/app_fonts.dart';
 import 'custom_drop_pick_image_controller.dart';
