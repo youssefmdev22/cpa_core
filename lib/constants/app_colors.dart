@@ -10,7 +10,10 @@ abstract class AppColors {
     60: Color(0xFF22C55E),
     70: Color(0xFF18AB50),
     80: Color(0xFF01D676),
+    90: Color(0xFF2E483B),
+    100: Color(0x802E4831),
   });
+
   static const MaterialColor blue = MaterialColor(0xFF059EF9, <int, Color>{
     0: Color(0xffebe6fa),
     10: Color(0xFF8FB9FF),
