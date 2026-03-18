@@ -3,7 +3,7 @@ import 'handlers/dropzone_platform_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CustomDropPickImageController extends ChangeNotifier {
-  late final DropzoneViewController _dropzoneController;
+  late DropzoneViewController _dropzoneController;
   final ImagePicker _picker = ImagePicker();
 
   Uint8List? _imageBytes;
