@@ -32,6 +32,7 @@ Future customExpandedDialog({
         showClose: showClose,
         padding: padding,
         child: child,
+        childBuilder: childBuilder,
       );
     },
     transitionDuration: const Duration(milliseconds: 400),
