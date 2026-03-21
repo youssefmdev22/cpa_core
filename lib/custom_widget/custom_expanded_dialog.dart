@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import '../cpa_core.dart';
 import '../generated/l10n.dart';
 
+typedef ExpandedDialogChildBuilder =
+    Widget Function(double width, double height);
+
 Future customExpandedDialog({
   required BuildContext context,
-  required Widget child,
   double? width,
   double? height,
   bool? showHeader,
@@ -13,6 +15,8 @@ Future customExpandedDialog({
   bool? showClose,
   bool cancelable = true,
   EdgeInsets? padding,
+  Widget? child,
+  ExpandedDialogChildBuilder? childBuilder,
 }) {
   return showGeneralDialog(
     context: context,
@@ -44,23 +48,25 @@ Future customExpandedDialog({
 }
 
 class CustomExpandedDialogContent extends StatefulWidget {
-  final Widget child;
   final double? width;
   final double? height;
   final bool? showHeader;
   final bool? showMinimize;
   final bool? showClose;
   final EdgeInsets? padding;
+  final Widget? child;
+  final ExpandedDialogChildBuilder? childBuilder;
 
   const CustomExpandedDialogContent({
     super.key,
-    required this.child,
     this.width,
     this.height,
     this.showHeader,
     this.showMinimize,
     this.showClose,
     this.padding,
+    this.child,
+    this.childBuilder,
   });
 
   @override
@@ -143,7 +149,12 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                   Expanded(
                     child: SingleChildScrollView(
                       padding: widget.padding,
-                      child: widget.child,
+                      child:
+                          widget.child ??
+                          widget.childBuilder!(
+                            widget.width ?? width,
+                            widget.height ?? height,
+                          ),
                     ),
                   ),
                 ],
