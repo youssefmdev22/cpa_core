@@ -19,9 +19,9 @@ class Validations {
   }
 
   static String? validatePassword(String? val) {
-    final RegExp passwordRegex = RegExp(
+    /*final RegExp passwordRegex = RegExp(
       r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[#?!@$%^&*-]).{8,}$',
-    );
+    );*/
     if (val == null) {
       return CoreLocalizations().passwordIsRequired;
     } else if (val.isEmpty) {
