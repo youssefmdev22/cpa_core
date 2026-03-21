@@ -126,28 +126,57 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                         ),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        spacing: 8,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          if (widget.showMinimize ?? true)
-                            _ActionButton(
-                              icon: isMaximized
-                                  ? Icons.fullscreen_exit
-                                  : Icons.fullscreen,
-                              onTap: () =>
-                                  setState(() => isMaximized = !isMaximized),
-                              tooltip: isMaximized
-                                  ? CoreLocalizations.of(context).minimize
-                                  : CoreLocalizations.of(context).maximize,
-                            ),
-                          if (widget.showClose ?? true)
-                            _ActionButton(
-                              icon: Icons.close,
-                              onTap: () => Navigator.of(context).pop(),
-                              tooltip: CoreLocalizations.of(context).close,
-                              color: AppColors.red.withAlpha(25),
-                              iconColor: AppColors.red,
-                            ),
+                          Row(
+                            spacing: 8,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.mainColor.withAlpha(20),
+                                ),
+                                child: const Icon(
+                                  Icons.rocket_launch_rounded,
+                                  color: AppColors.mainColor,
+                                  size: 20,
+                                ),
+                              ),
+                              Text(
+                                "GemiWall",
+                                style: context.bodyLarge?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            spacing: 8,
+                            children: [
+                              if (widget.showMinimize ?? true)
+                                _ActionButton(
+                                  icon: isMaximized
+                                      ? Icons.fullscreen_exit
+                                      : Icons.fullscreen,
+                                  onTap: () => setState(
+                                    () => isMaximized = !isMaximized,
+                                  ),
+                                  tooltip: isMaximized
+                                      ? CoreLocalizations.of(context).minimize
+                                      : CoreLocalizations.of(context).maximize,
+                                ),
+                              if (widget.showClose ?? true)
+                                _ActionButton(
+                                  icon: Icons.close,
+                                  onTap: () => Navigator.of(context).pop(),
+                                  tooltip: CoreLocalizations.of(context).close,
+                                  color: AppColors.red.withAlpha(25),
+                                  iconColor: AppColors.red,
+                                ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
