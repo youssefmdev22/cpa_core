@@ -15,6 +15,7 @@ Future customExpandedDialog({
   bool? showClose,
   bool cancelable = true,
   EdgeInsets? padding,
+  bool useScroll = true,
   Widget? child,
   ExpandedDialogChildBuilder? childBuilder,
 }) {
@@ -31,8 +32,9 @@ Future customExpandedDialog({
         showMinimize: showMinimize,
         showClose: showClose,
         padding: padding,
-        child: child,
+        useScroll: useScroll,
         childBuilder: childBuilder,
+        child: child,
       );
     },
     transitionDuration: const Duration(milliseconds: 400),
@@ -55,6 +57,7 @@ class CustomExpandedDialogContent extends StatefulWidget {
   final bool? showMinimize;
   final bool? showClose;
   final EdgeInsets? padding;
+  final bool useScroll;
   final Widget? child;
   final ExpandedDialogChildBuilder? childBuilder;
 
@@ -66,6 +69,7 @@ class CustomExpandedDialogContent extends StatefulWidget {
     this.showMinimize,
     this.showClose,
     this.padding,
+    this.useScroll = true,
     this.child,
     this.childBuilder,
   });
@@ -148,14 +152,24 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                       ),
                     ),
                   Expanded(
-                    child: SingleChildScrollView(
-                      padding: widget.padding,
-                      child:
-                          widget.child ??
-                          widget.childBuilder!(
-                            widget.width ?? width,
-                            widget.height ?? height,
-                          ),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final child =
+                            widget.child ??
+                            widget.childBuilder!(
+                              constraints.maxWidth,
+                              constraints.maxHeight,
+                            );
+                        return widget.useScroll
+                            ? SingleChildScrollView(
+                                padding: widget.padding,
+                                child: child,
+                              )
+                            : Padding(
+                                padding: widget.padding ?? EdgeInsets.zero,
+                                child: child,
+                              );
+                      },
                     ),
                   ),
                 ],
