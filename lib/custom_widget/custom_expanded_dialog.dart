@@ -18,6 +18,8 @@ Future customExpandedDialog({
   bool useScroll = true,
   Widget? child,
   ExpandedDialogChildBuilder? childBuilder,
+  IconData? icon,
+  String? title,
 }) {
   return showGeneralDialog(
     context: context,
@@ -60,6 +62,8 @@ class CustomExpandedDialogContent extends StatefulWidget {
   final bool useScroll;
   final Widget? child;
   final ExpandedDialogChildBuilder? childBuilder;
+  final IconData? icon;
+  final String? title;
 
   const CustomExpandedDialogContent({
     super.key,
@@ -72,6 +76,8 @@ class CustomExpandedDialogContent extends StatefulWidget {
     this.useScroll = true,
     this.child,
     this.childBuilder,
+    this.icon,
+    this.title,
   });
 
   @override
@@ -131,25 +137,27 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                           Row(
                             spacing: 8,
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.mainColor.withAlpha(20),
+                              if (widget.icon != null)
+                                Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.mainColor.withAlpha(20),
+                                  ),
+                                  child: Icon(
+                                    widget.icon!,
+                                    color: AppColors.mainColor,
+                                    size: 20,
+                                  ),
                                 ),
-                                child: const Icon(
-                                  Icons.rocket_launch_rounded,
-                                  color: AppColors.mainColor,
-                                  size: 20,
+                              if (widget.title != null)
+                                Text(
+                                  widget.title!,
+                                  style: context.bodyMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.white,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "GemiWall",
-                                style: context.bodyLarge?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.white,
-                                ),
-                              ),
                             ],
                           ),
                           Row(
