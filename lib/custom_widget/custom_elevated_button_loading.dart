@@ -13,6 +13,7 @@ class CustomElevatedButtonLoading extends StatelessWidget {
     this.onPressed,
     this.loadingColor,
     this.isLoading = false,
+    this.isExpanded = true,
   });
 
   final bool? isLoading;
@@ -21,29 +22,41 @@ class CustomElevatedButtonLoading extends StatelessWidget {
   final TextStyle? textStyleButton;
   final Color? colorButton, loadingColor;
   final void Function()? onPressed;
+  final bool isExpanded;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final local = CoreLocalizations.of(context);
+
     return SizedBox(
-      height: heightButton ?? 40,
-      width: widthButton,
+      width: isExpanded ? double.infinity : null,
       child: ElevatedButton(
-        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: colorButton ?? theme.colorScheme.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderButton ?? 8),
           ),
         ),
-        child: isLoading == true
-            ? CircularProgressIndicator(
-                color: loadingColor ?? theme.colorScheme.onSecondary,
-                strokeWidth: 3,
-                padding: const EdgeInsets.symmetric(vertical: 3),
-                trackGap: 4,
-              )
-            : Text(textButton ?? local.done, style: textStyleButton),
+        onPressed: (isLoading ?? false) ? null : onPressed,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Opacity(
+              opacity: (isLoading ?? false) ? 0.0 : 1.0,
+              child: Text(textButton ?? local.done, style: textStyleButton),
+            ),
+            if (isLoading ?? false)
+              Positioned.fill(
+                child: Center(
+                  child: SizedBox(
+                    width: 24,
+                    height: 24,
+                    child: CircularProgressIndicator(strokeWidth: 3),
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
