@@ -19,6 +19,8 @@ class CustomOfferCard extends StatelessWidget {
   final double? rating;
   final int? requiredPoints;
   final VoidCallback? onTap;
+  final bool? isChecked;
+  final Color? checkColor;
 
   const CustomOfferCard({
     super.key,
@@ -31,6 +33,8 @@ class CustomOfferCard extends StatelessWidget {
     this.rating,
     this.requiredPoints,
     this.onTap,
+    this.isChecked,
+    this.checkColor,
   });
 
   @override
@@ -54,101 +58,130 @@ class CustomOfferCard extends StatelessWidget {
             ),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Stack(
         children: [
-          ?Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              margin: const EdgeInsets.only(right: 10),
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(6),
-                  bottomRight: Radius.circular(6),
-                ),
-                color: badgeColor ?? AppColors.mainColor,
-              ),
-              child: Text(
-                badgeTitle ?? "",
-                style: context.bodySmall,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
-            ),
-          ).showIf(badgeTitle != null),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: AspectRatio(
-              aspectRatio: 1 / 1,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  ImageFiltered(
-                    imageFilter: ImageFilter.blur(
-                      sigmaX: requiredPoints != null ? 2 : 0,
-                      sigmaY: requiredPoints != null ? 2 : 0,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ?Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 4,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(6),
+                      bottomRight: Radius.circular(6),
                     ),
-                    child: CustomCachedNetworkImage(
-                      imageUrl: imageUrl ?? "",
-                      fit: BoxFit.contain,
+                    color: badgeColor ?? AppColors.mainColor,
+                  ),
+                  child: Text(
+                    badgeTitle ?? "",
+                    style: context.bodySmall,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ),
+              ).showIf(badgeTitle != null),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: AspectRatio(
+                  aspectRatio: 1 / 1,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      ImageFiltered(
+                        imageFilter: ImageFilter.blur(
+                          sigmaX: requiredPoints != null ? 2 : 0,
+                          sigmaY: requiredPoints != null ? 2 : 0,
+                        ),
+                        child: CustomCachedNetworkImage(
+                          imageUrl: imageUrl ?? "",
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      ?Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        spacing: 4,
+                        children: [
+                          const Icon(
+                            FontAwesomeIcons.lock,
+                            color: AppColors.white,
+                            size: 30,
+                          ),
+                          Text(
+                            CoreLocalizations.of(context).pointsRequiredToUnlock
+                                .format([requiredPoints ?? 0]),
+                            textAlign: TextAlign.center,
+                            style: context.bodySmall,
+                          ),
+                        ],
+                      ).showIf(requiredPoints != null),
+                    ],
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  title ?? CoreLocalizations().appName,
+                  style: context.bodySmall,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+              const SizedBox(height: 4),
+              ?Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: RatingBar.builder(
+                  initialRating: rating ?? 0,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemSize: 10,
+                  itemCount: 5,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 2),
+                  itemBuilder: (context, _) => const Icon(
+                    FontAwesomeIcons.solidStar,
+                    color: Colors.amber,
+                    size: 10,
+                  ),
+                  unratedColor: Colors.amber.withValues(alpha: .5),
+                  onRatingUpdate: (_) {},
+                ),
+              ).showIf(rating != null),
+              const SizedBox(height: 10),
+            ],
+          ),
+          if (isChecked ?? false)
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: checkColor ?? AppColors.mainColor[20]!,
+                    width: 4,
+                  ),
+                ),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(4),
+                    child: Icon(
+                      Icons.check_circle,
+                      color: checkColor ?? AppColors.mainColor[20]!,
+                      size: 24,
                     ),
                   ),
-                  ?Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    spacing: 4,
-                    children: [
-                      const Icon(
-                        FontAwesomeIcons.lock,
-                        color: AppColors.white,
-                        size: 30,
-                      ),
-                      Text(
-                        CoreLocalizations.of(
-                          context,
-                        ).pointsRequiredToUnlock.format([requiredPoints ?? 0]),
-                        textAlign: TextAlign.center,
-                        style: context.bodySmall,
-                      ),
-                    ],
-                  ).showIf(requiredPoints != null),
-                ],
+                ),
               ),
             ),
-          ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              title ?? CoreLocalizations().appName,
-              style: context.bodySmall,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-            ),
-          ),
-          const SizedBox(height: 4),
-          ?Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: RatingBar.builder(
-              initialRating: rating??0,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemSize: 10,
-              itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 2),
-              itemBuilder: (context, _) => const Icon(
-                FontAwesomeIcons.solidStar,
-                color: Colors.amber,
-                size: 10,
-              ),
-              unratedColor: Colors.amber.withValues(alpha: .5),
-              onRatingUpdate: (_) {},
-            ),
-          ).showIf(rating != null),
-          const SizedBox(height: 10),
         ],
       ),
     ).applyBounceable(onTap: requiredPoints != null ? () {} : onTap);

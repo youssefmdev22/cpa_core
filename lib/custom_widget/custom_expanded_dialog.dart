@@ -6,6 +6,9 @@ import '../generated/l10n.dart';
 Future customExpandedDialog({
   required BuildContext context,
   required Widget child,
+  double? width,
+  double? height,
+  bool? showHeader,
 }) {
   return showGeneralDialog(
     context: context,
@@ -13,7 +16,12 @@ Future customExpandedDialog({
     barrierLabel: CoreLocalizations.of(context).customExpandedDialog,
     barrierColor: AppColors.black.withAlpha(70),
     pageBuilder: (context, animation, secondaryAnimation) {
-      return CustomExpandedDialogContent(child: child);
+      return CustomExpandedDialogContent(
+        width: width,
+        height: height,
+        showHeader: showHeader,
+        child: child,
+      );
     },
     transitionDuration: const Duration(milliseconds: 400),
     transitionBuilder: (context, animation, secondaryAnimation, child) {
@@ -30,8 +38,17 @@ Future customExpandedDialog({
 
 class CustomExpandedDialogContent extends StatefulWidget {
   final Widget child;
+  final double? width;
+  final double? height;
+  final bool? showHeader;
 
-  const CustomExpandedDialogContent({super.key, required this.child});
+  const CustomExpandedDialogContent({
+    super.key,
+    required this.child,
+    this.width,
+    this.height,
+    this.showHeader,
+  });
 
   @override
   State<CustomExpandedDialogContent> createState() =>
@@ -54,8 +71,8 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            width: width,
-            height: height,
+            width: widget.width ?? width,
+            height: widget.height ?? height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               gradient: RadialGradient(
@@ -69,45 +86,45 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
               borderRadius: BorderRadius.circular(isMaximized ? 0 : 24),
               child: Column(
                 children: [
-                  // Premium Header
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.bgColor[10],
-                      border: Border(
-                        bottom: BorderSide(
-                          color: AppColors.gray.withAlpha(50),
-                          width: 1,
+                  if (widget.showHeader ?? true)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.bgColor[10],
+                        border: Border(
+                          bottom: BorderSide(
+                            color: AppColors.gray.withAlpha(50),
+                            width: 1,
+                          ),
                         ),
                       ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        spacing: 8,
+                        children: [
+                          _ActionButton(
+                            icon: isMaximized
+                                ? Icons.fullscreen_exit
+                                : Icons.fullscreen,
+                            onTap: () =>
+                                setState(() => isMaximized = !isMaximized),
+                            tooltip: isMaximized
+                                ? CoreLocalizations.of(context).minimize
+                                : CoreLocalizations.of(context).maximize,
+                          ),
+                          _ActionButton(
+                            icon: Icons.close,
+                            onTap: () => Navigator.of(context).pop(),
+                            tooltip: CoreLocalizations.of(context).close,
+                            color: Colors.redAccent.withAlpha(25),
+                            iconColor: Colors.redAccent,
+                          ),
+                        ],
+                      ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      spacing: 8,
-                      children: [
-                        _ActionButton(
-                          icon: isMaximized
-                              ? Icons.fullscreen_exit
-                              : Icons.fullscreen,
-                          onTap: () =>
-                              setState(() => isMaximized = !isMaximized),
-                          tooltip: isMaximized
-                              ? CoreLocalizations.of(context).minimize
-                              : CoreLocalizations.of(context).maximize,
-                        ),
-                        _ActionButton(
-                          icon: Icons.close,
-                          onTap: () => Navigator.of(context).pop(),
-                          tooltip: CoreLocalizations.of(context).close,
-                          color: Colors.redAccent.withAlpha(25),
-                          iconColor: Colors.redAccent,
-                        ),
-                      ],
-                    ),
-                  ),
                   Expanded(child: widget.child),
                 ],
               ),
