@@ -26,8 +26,8 @@ class Validations {
       return CoreLocalizations().passwordIsRequired;
     } else if (val.isEmpty) {
       return CoreLocalizations().passwordIsRequired;
-    } else if (val.length < 8 || !passwordRegex.hasMatch(val)) {
-      return CoreLocalizations().passwordNotMatched;
+    } else if (val.length < 8) {
+      return CoreLocalizations().passwordMustBeAtLeast8Characters;
     } else {
       return null;
     }

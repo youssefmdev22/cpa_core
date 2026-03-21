@@ -69,9 +69,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
         "passwordIsRequired":
-            MessageLookupByLibrary.simpleMessage("password is required"),
+            MessageLookupByLibrary.simpleMessage("Password is required"),
+        "passwordMustBeAtLeast8Characters":
+            MessageLookupByLibrary.simpleMessage(
+                "Password must be at least 8 characters"),
         "passwordNotMatched":
-            MessageLookupByLibrary.simpleMessage("password Not Matched"),
+            MessageLookupByLibrary.simpleMessage("Password not matched"),
         "pleaseEnterAddress":
             MessageLookupByLibrary.simpleMessage("Please enter the address"),
         "pleaseEnterValidAddress":

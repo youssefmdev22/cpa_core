@@ -220,21 +220,31 @@ class CoreLocalizations {
     );
   }
 
-  /// `password is required`
+  /// `Password is required`
   String get passwordIsRequired {
     return Intl.message(
-      'password is required',
+      'Password is required',
       name: 'passwordIsRequired',
       desc: '',
       args: [],
     );
   }
 
-  /// `password Not Matched`
+  /// `Password not matched`
   String get passwordNotMatched {
     return Intl.message(
-      'password Not Matched',
+      'Password not matched',
       name: 'passwordNotMatched',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get passwordMustBeAtLeast8Characters {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'passwordMustBeAtLeast8Characters',
       desc: '',
       args: [],
     );
