@@ -9,10 +9,14 @@ Future customExpandedDialog({
   double? width,
   double? height,
   bool? showHeader,
+  bool? showMinimize,
+  bool? showClose,
+  bool cancelable = true,
+  EdgeInsets? padding,
 }) {
   return showGeneralDialog(
     context: context,
-    barrierDismissible: true,
+    barrierDismissible: cancelable,
     barrierLabel: CoreLocalizations.of(context).customExpandedDialog,
     barrierColor: AppColors.black.withAlpha(70),
     pageBuilder: (context, animation, secondaryAnimation) {
@@ -20,6 +24,9 @@ Future customExpandedDialog({
         width: width,
         height: height,
         showHeader: showHeader,
+        showMinimize: showMinimize,
+        showClose: showClose,
+        padding: padding,
         child: child,
       );
     },
@@ -41,6 +48,9 @@ class CustomExpandedDialogContent extends StatefulWidget {
   final double? width;
   final double? height;
   final bool? showHeader;
+  final bool? showMinimize;
+  final bool? showClose;
+  final EdgeInsets? padding;
 
   const CustomExpandedDialogContent({
     super.key,
@@ -48,6 +58,9 @@ class CustomExpandedDialogContent extends StatefulWidget {
     this.width,
     this.height,
     this.showHeader,
+    this.showMinimize,
+    this.showClose,
+    this.padding,
   });
 
   @override
@@ -74,7 +87,7 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
             width: widget.width ?? width,
             height: widget.height ?? height,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(isMaximized ? 0 : 16),
               gradient: RadialGradient(
                 center: Alignment.topCenter,
                 radius: 1.2,
@@ -83,7 +96,7 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
               ),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(isMaximized ? 0 : 24),
+              borderRadius: BorderRadius.circular(isMaximized ? 0 : 16),
               child: Column(
                 children: [
                   if (widget.showHeader ?? true)
@@ -105,27 +118,34 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         spacing: 8,
                         children: [
-                          _ActionButton(
-                            icon: isMaximized
-                                ? Icons.fullscreen_exit
-                                : Icons.fullscreen,
-                            onTap: () =>
-                                setState(() => isMaximized = !isMaximized),
-                            tooltip: isMaximized
-                                ? CoreLocalizations.of(context).minimize
-                                : CoreLocalizations.of(context).maximize,
-                          ),
-                          _ActionButton(
-                            icon: Icons.close,
-                            onTap: () => Navigator.of(context).pop(),
-                            tooltip: CoreLocalizations.of(context).close,
-                            color: Colors.redAccent.withAlpha(25),
-                            iconColor: Colors.redAccent,
-                          ),
+                          if (widget.showMinimize ?? true)
+                            _ActionButton(
+                              icon: isMaximized
+                                  ? Icons.fullscreen_exit
+                                  : Icons.fullscreen,
+                              onTap: () =>
+                                  setState(() => isMaximized = !isMaximized),
+                              tooltip: isMaximized
+                                  ? CoreLocalizations.of(context).minimize
+                                  : CoreLocalizations.of(context).maximize,
+                            ),
+                          if (widget.showClose ?? true)
+                            _ActionButton(
+                              icon: Icons.close,
+                              onTap: () => Navigator.of(context).pop(),
+                              tooltip: CoreLocalizations.of(context).close,
+                              color: AppColors.red.withAlpha(25),
+                              iconColor: AppColors.red,
+                            ),
                         ],
                       ),
                     ),
-                  Expanded(child: widget.child),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: widget.padding,
+                      child: widget.child,
+                    ),
+                  ),
                 ],
               ),
             ),
