@@ -35,6 +35,8 @@ Future customExpandedDialog({
         showClose: showClose,
         padding: padding,
         useScroll: useScroll,
+        icon: icon,
+        title: title,
         childBuilder: childBuilder,
         child: child,
       );
