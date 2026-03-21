@@ -47,5 +47,9 @@
   "week": "week",
   "month": "month",
   "year": "year",
-  "justNow": "just now"
+  "justNow": "just now",
+  "customExpandedDialog": "Custom Expanded Dialog",
+  "minimize": "Minimize",
+  "maximize": "Maximize",
+  "close": "Close"
 }

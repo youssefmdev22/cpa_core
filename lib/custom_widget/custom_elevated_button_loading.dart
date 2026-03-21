@@ -2,27 +2,26 @@ import 'package:cpa_core/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButtonLoading extends StatelessWidget {
+  final bool? isLoading;
+  final double? borderButton;
+  final String? textButton;
+  final TextStyle? textStyleButton;
+  final Color? buttonColor, loadingColor;
+  final void Function()? onPressed;
+  final bool isExpanded;
+
   const CustomElevatedButtonLoading({
     super.key,
-    this.heightButton,
-    this.widthButton,
     this.borderButton,
     this.textButton,
     this.textStyleButton,
-    this.colorButton,
+    this.buttonColor,
     this.onPressed,
     this.loadingColor,
     this.isLoading = false,
     this.isExpanded = true,
   });
 
-  final bool? isLoading;
-  final double? heightButton, widthButton, borderButton;
-  final String? textButton;
-  final TextStyle? textStyleButton;
-  final Color? colorButton, loadingColor;
-  final void Function()? onPressed;
-  final bool isExpanded;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -32,7 +31,7 @@ class CustomElevatedButtonLoading extends StatelessWidget {
       width: isExpanded ? double.infinity : null,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: colorButton ?? theme.colorScheme.primary,
+          backgroundColor: buttonColor ?? theme.colorScheme.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderButton ?? 8),
           ),
@@ -51,7 +50,10 @@ class CustomElevatedButtonLoading extends StatelessWidget {
                   child: SizedBox(
                     width: 24,
                     height: 24,
-                    child: CircularProgressIndicator(strokeWidth: 3),
+                    child: CircularProgressIndicator(
+                      strokeWidth: 3,
+                      color: loadingColor,
+                    ),
                   ),
                 ),
               ),

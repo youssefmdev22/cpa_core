@@ -28,10 +28,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bad certificate. Please check your device date/time."),
         "badResponse": MessageLookupByLibrary.simpleMessage(
             "Unexpected error response from server"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "connectionError": MessageLookupByLibrary.simpleMessage(
             "Network error. Please check your internet connection."),
         "connectionTimeout": MessageLookupByLibrary.simpleMessage(
             "Connection timeout. Please try again later."),
+        "customExpandedDialog":
+            MessageLookupByLibrary.simpleMessage("Custom Expanded Dialog"),
         "day": MessageLookupByLibrary.simpleMessage("day"),
         "dioErrorCancel": MessageLookupByLibrary.simpleMessage(
             "Request was cancelled. Please retry."),
@@ -61,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Location permission permanently denied."),
         "locationServicesAreDisabled": MessageLookupByLibrary.simpleMessage(
             "Location services are disabled."),
+        "maximize": MessageLookupByLibrary.simpleMessage("Maximize"),
+        "minimize": MessageLookupByLibrary.simpleMessage("Minimize"),
         "minute": MessageLookupByLibrary.simpleMessage("minute"),
         "month": MessageLookupByLibrary.simpleMessage("month"),
         "no": MessageLookupByLibrary.simpleMessage("No"),

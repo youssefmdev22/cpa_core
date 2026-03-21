@@ -539,6 +539,46 @@ class CoreLocalizations {
       args: [],
     );
   }
+
+  /// `Custom Expanded Dialog`
+  String get customExpandedDialog {
+    return Intl.message(
+      'Custom Expanded Dialog',
+      name: 'customExpandedDialog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minimize`
+  String get minimize {
+    return Intl.message(
+      'Minimize',
+      name: 'minimize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximize`
+  String get maximize {
+    return Intl.message(
+      'Maximize',
+      name: 'maximize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<CoreLocalizations> {
