@@ -39,8 +39,8 @@ Future customExpandedDialog({
         icon: icon,
         title: title,
         childBuilder: childBuilder,
-        child: child,
         onOpen: onOpen,
+        child: child,
       );
     },
     transitionDuration: const Duration(milliseconds: 400),
@@ -172,7 +172,7 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                               if (widget.onOpen != null)
                                 _ActionButton(
                                   icon: Icons.open_in_new,
-                                  onTap: () => widget.onOpen,
+                                  onTap: widget.onOpen!,
                                   tooltip: CoreLocalizations.of(
                                     context,
                                   ).openInNewTab,
