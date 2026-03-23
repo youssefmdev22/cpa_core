@@ -579,6 +579,16 @@ class CoreLocalizations {
       args: [],
     );
   }
+
+  /// `Open in new tab`
+  String get openInNewTab {
+    return Intl.message(
+      'Open in new tab',
+      name: 'openInNewTab',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<CoreLocalizations> {

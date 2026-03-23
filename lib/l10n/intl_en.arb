@@ -51,5 +51,6 @@
   "customExpandedDialog": "Custom Expanded Dialog",
   "minimize": "Minimize",
   "maximize": "Maximize",
-  "close": "Close"
+  "close": "Close",
+  "openInNewTab": "Open in new tab"
 }

@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noResponse": MessageLookupByLibrary.simpleMessage(
             "No response received from server."),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
+        "openInNewTab": MessageLookupByLibrary.simpleMessage("Open in new tab"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
         "passwordIsRequired":
             MessageLookupByLibrary.simpleMessage("Password is required"),

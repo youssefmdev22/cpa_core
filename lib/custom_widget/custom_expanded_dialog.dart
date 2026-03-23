@@ -20,6 +20,7 @@ Future customExpandedDialog({
   ExpandedDialogChildBuilder? childBuilder,
   IconData? icon,
   String? title,
+  VoidCallback? onOpen,
 }) {
   return showGeneralDialog(
     context: context,
@@ -39,6 +40,7 @@ Future customExpandedDialog({
         title: title,
         childBuilder: childBuilder,
         child: child,
+        onOpen: onOpen,
       );
     },
     transitionDuration: const Duration(milliseconds: 400),
@@ -66,6 +68,7 @@ class CustomExpandedDialogContent extends StatefulWidget {
   final ExpandedDialogChildBuilder? childBuilder;
   final IconData? icon;
   final String? title;
+  final VoidCallback? onOpen;
 
   const CustomExpandedDialogContent({
     super.key,
@@ -80,6 +83,7 @@ class CustomExpandedDialogContent extends StatefulWidget {
     this.childBuilder,
     this.icon,
     this.title,
+    this.onOpen,
   });
 
   @override
@@ -165,6 +169,14 @@ class _CustomExpandedDialogContent extends State<CustomExpandedDialogContent> {
                           Row(
                             spacing: 8,
                             children: [
+                              if (widget.onOpen != null)
+                                _ActionButton(
+                                  icon: Icons.open_in_new,
+                                  onTap: () => widget.onOpen,
+                                  tooltip: CoreLocalizations.of(
+                                    context,
+                                  ).openInNewTab,
+                                ),
                               if (widget.showMinimize ?? true)
                                 _ActionButton(
                                   icon: isMaximized
