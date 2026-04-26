@@ -7,7 +7,7 @@ import 'custom_data_button_model.dart';
 import 'custom_data_grid_model.dart';
 
 class CustomCellWidget extends StatelessWidget {
-  final String value;
+  final dynamic value;
   final ValueNotifier<String>? cell;
   final CustomColumnModel column;
   final CustomDataGridModel row;
@@ -29,10 +29,10 @@ class CustomCellWidget extends StatelessWidget {
     return isEditable
         ? ValueListenableBuilder(
             valueListenable: cell!,
-            builder: (context, value, _) {
+            builder: (context, val, _) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: _buildCell(context, value),
+                child: _buildCell(context, val),
               );
             },
           )
@@ -42,7 +42,7 @@ class CustomCellWidget extends StatelessWidget {
           );
   }
 
-  Widget _buildCell(BuildContext context, String value) {
+  Widget _buildCell(BuildContext context, dynamic value) {
     switch (column.type) {
       case CustomColumnType.linkText:
         return _linkTextCell(
@@ -69,86 +69,97 @@ class CustomCellWidget extends StatelessWidget {
     }
   }
 
-  Widget _textCell({required BuildContext context, required String value}) {
+  Widget _textCell({required BuildContext context, required dynamic value}) {
     return Text(
       textAlign: TextAlign.center,
       value.toString(),
       overflow: TextOverflow.ellipsis,
       maxLines: 1,
-      style: column.columnTextStyle?[1] ??  context.bodySmall?.copyWith(
-        fontWeight: FontWeight.w600,
-      ),
+      style: column.columnTextStyle?[1] ??
+          context.bodySmall?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
     );
   }
 
   Widget _linkTextCell({
     required BuildContext context,
-    required String value,
+    required dynamic value,
     required List<CustomDataButtonModel> buttons,
   }) {
     return TextButton(
       onPressed: () => buttons[0].onTap(index, row),
       child: Text(
-        value,
+        value.toString(),
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
-        style: column.columnTextStyle?[1] ?? context.bodySmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: AppColors.blue,
-          decoration: TextDecoration.underline,
-          decorationColor: AppColors.blue,
-        ),
+        style: column.columnTextStyle?[1] ??
+            context.bodySmall?.copyWith(
+              fontWeight: FontWeight.w600,
+              color: AppColors.blue,
+              decoration: TextDecoration.underline,
+              decorationColor: AppColors.blue,
+            ),
       ),
     );
   }
 
   Widget _selectableTextCell({
     required BuildContext context,
-    required String value,
+    required dynamic value,
   }) {
     return SelectableText(
       textAlign: TextAlign.center,
       value.toString(),
       maxLines: 1,
-      style: column.columnTextStyle?[1] ?? context.bodySmall?.copyWith(
-        overflow: TextOverflow.ellipsis,
-        fontWeight: FontWeight.w600,
-      ),
+      style: column.columnTextStyle?[1] ??
+          context.bodySmall?.copyWith(
+            overflow: TextOverflow.ellipsis,
+            fontWeight: FontWeight.w600,
+          ),
     );
   }
 
   Widget _buttonCell({
     required BuildContext context,
-    required String value,
+    required dynamic value,
     required List<CustomDataButtonModel> buttons,
   }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: buttons
           .map(
-            (b) => Material(
-              color: Colors.transparent,
-              child: Ink(
-                decoration: ShapeDecoration(
-                  color: b.color,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
-                  ),
-                ),
-                child: IconButton(
-                  style: IconButton.styleFrom(
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(2)),
+            (b) {
+              final icon = b.iconBuilder?.call(index, row) ?? b.icon ?? Icons.error;
+              final color = b.colorBuilder?.call(index, row) ?? b.color ?? Colors.grey;
+
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Material(
+                  color: Colors.transparent,
+                  child: Ink(
+                    decoration: ShapeDecoration(
+                      color: color,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                      ),
+                    ),
+                    child: IconButton(
+                      style: IconButton.styleFrom(
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                        ),
+                      ),
+                      icon: Icon(icon, size: 18),
+                      color: AppColors.white,
+                      onPressed: () {
+                        b.onTap(index, row);
+                      },
                     ),
                   ),
-                  icon: Icon(b.icon),
-                  color: AppColors.white,
-                  onPressed: () {
-                    b.onTap(index, row);
-                  },
                 ),
-              ),
-            ),
+              );
+            },
           )
           .toList(),
     );

@@ -13,6 +13,7 @@ class CustomColumnModel {
   final List<CustomDataButtonModel>? buttons;
   final Map<int, TextStyle>? columnTextStyle;
   final CustomDataChildBuilder? childBuilder;
+  final int flex;
 
   CustomColumnModel({
     required this.column,
@@ -20,5 +21,6 @@ class CustomColumnModel {
     this.buttons,
     this.columnTextStyle,
     this.childBuilder,
+    this.flex = 1,
   });
 }

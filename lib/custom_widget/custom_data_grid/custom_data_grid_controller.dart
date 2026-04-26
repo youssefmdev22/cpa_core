@@ -5,10 +5,16 @@ import 'custom_data_grid_model.dart';
 
 class CustomDataGridController extends ChangeNotifier {
   final List<CustomColumnModel> columns;
-
-  CustomDataGridController({required this.columns});
-
   final List<CustomDataGridModel> _rows = [];
+
+  CustomDataGridController({
+    required this.columns,
+    List<CustomDataGridModel>? initialRows,
+  }) {
+    if (initialRows != null) {
+      _rows.addAll(initialRows);
+    }
+  }
 
   List<CustomDataGridModel> get rows => List.unmodifiable(_rows);
 
@@ -30,14 +36,14 @@ class CustomDataGridController extends ChangeNotifier {
     return _rows.firstWhere((r) => r.id == id);
   }
 
-  void updateRow(String id, Map<String, String> values) {
+  void updateRow(String id, Map<String, dynamic> values) {
     final row = getRow(id);
     if (row != null) {
       row.updateRow(values);
     }
   }
 
-  void updateCell(String rowId, String column, String value) {
+  void updateCell(String rowId, String column, dynamic value) {
     final row = getRow(rowId);
     row?.updateCell(column, value);
   }

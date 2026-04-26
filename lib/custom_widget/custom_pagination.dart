@@ -25,7 +25,9 @@ class CustomPagination extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PrevButton(),
-            Flexible(child: ScrollableNumberContent(shrinkWrap: true)),
+            Expanded(
+              child: DropDownContent(),
+            ),
             NextButton(),
           ],
         ),
