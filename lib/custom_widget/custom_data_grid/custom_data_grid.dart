@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'custom_cell_widget.dart';
 import 'custom_data_grid_controller.dart';
-import 'custom_data_row.dart';
 
 class CustomDataGrid extends StatefulWidget {
   final CustomDataGridController controller;
@@ -122,7 +121,7 @@ class _CustomDataGridState extends State<CustomDataGrid> {
               color: AppColors.gray[140],
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
+                  color: Colors.black.withValues(alpha: 0.3),
                   blurRadius: 15,
                   spreadRadius: 2,
                 ),
@@ -157,7 +156,7 @@ class _CustomDataGridState extends State<CustomDataGrid> {
             color:
                 isEven
                     ? Colors.transparent
-                    : AppColors.gray[150]!.withOpacity(0.3),
+                    : AppColors.gray[150]!.withValues(alpha: 0.3),
             border: Border(
               bottom: BorderSide(color: AppColors.gray[130]!, width: 1),
             ),

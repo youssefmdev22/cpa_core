@@ -26,6 +26,10 @@ class CustomPagination extends StatelessWidget {
           children: [
             PrevButton(),
             Expanded(
+              child: NumberContent(),
+            ),
+            SizedBox(
+              width: 50,
               child: DropDownContent(),
             ),
             NextButton(),
